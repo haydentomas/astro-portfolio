@@ -35,7 +35,28 @@ const postsCollection = defineCollection({
     })
  });
 
+
+ 
+ const projectsTaggedCollection = defineCollection({
+  schema: ({ image }) => z.object({
+      title: z.string(),
+      pubDate: z.date(),
+      description: z.string(),
+      author: z.optional(z.string()),
+      image: image().refine((img) => img.width >= 600, {
+        message: "Cover image must be at least 600 pixels wide!",
+      }),
+      imageAlt: z.string(),
+      tags: z.array(z.string()),
+      projectURL: z.string(),
+      pageURL: z.string(),
+      // Add a 'draft' property, which is a boolean false or true no ``
+      draft: z.optional(z.boolean()),
+    })
+ });
+
 export const collections = {
   posts: postsCollection,
   projects: projectsCollection,
+  projectstagged: projectsTaggedCollection,
 };
