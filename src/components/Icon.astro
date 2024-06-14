@@ -1,0 +1,32 @@
+---
+import type { IconName, IconElement } from '../types';
+
+const { name } = Astro.props as { name: IconName };
+
+const icons: Record<IconName, IconElement> = {
+    javascript: <><img src="/icons/javascript.svg" alt="JavaScript" width="24" height="24" /></>,
+    react: <><img src="/icons/react.svg" alt="React" width="24" height="24" /></>,
+    html: <><img src="/icons/html.svg" alt="HTML" width="24" height="24" /></>,
+    // ... more icons
+};
+---
+
+{
+    name === 'javascript' && (
+        <img src="/icons/javascript.svg" alt="JavaScript" width="24" height="24" />
+    )
+}
+{
+    name === 'react' && (
+        <img src="/icons/react.svg" alt="React" width="24" height="24" />
+    )
+}
+{
+    name === 'html' && (
+        <img src="/icons/html.svg" alt="HTML" width="24" height="24" />
+    )
+}
+{/* Add more conditional blocks for other icons */}
+{
+    !icons[name] && <span>Unknown Icon</span> // Default fallback
+}

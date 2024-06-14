@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import Icon from '../../components/Icon.astro';
+import type { IconName } from '../../types';
 
 // Define a basic structure for the pagination result
 type PaginationResult = {
@@ -41,13 +43,14 @@ type PaginationInfo = {
 
 // Define a type for the individual post item
 type PostItem = {
-    data: {
-        title: string;
-        description: string;
-        image: string;
-        imageAlt: string;
-    };
-    slug: string;
+  data: {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    icons: IconName[]; // Add the icons property
+  };
+  slug: string;
 };
 ---
 <BaseLayout>
@@ -59,6 +62,7 @@ type PostItem = {
                     <div class="bg-gray-200 rounded-lg border border-gray-300 p-4 my-2">
                         <h3 class="text-xl font-bold">{data.title}</h3>
                         <p>{data.description}</p>
+                        {data.icons?.map(icon => <Icon name={icon} />)}
                         <div class="flex justify-center items-center h-full">
                             <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="m-auto"/>
                         </div>
