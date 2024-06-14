@@ -12,9 +12,11 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
-import { Image } from 'astro:assets';
-const ogImage = Astro.props.entry?.data.ogImage; // Get the OG image from frontmatter
+const { title, description, entry } = Astro.props;
+const ogImage = entry?.data.ogImage; // Get the OG image from frontmatter
+
+// Use the ogImage or fallback to a default value
+const image = ogImage || '/default-og-image.jpg'; 
 ---
 
 <!-- Global Metadata -->
@@ -40,11 +42,11 @@ const ogImage = Astro.props.entry?.data.ogImage; // Get the OG image from frontm
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage ? new URL(ogImage, Astro.url) : new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ogImage ? new URL(ogImage, Astro.url) : new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
