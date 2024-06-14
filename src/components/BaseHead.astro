@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-
+import { Image } from 'astro:assets';
 interface Props {
 	title: string;
 	description: string;
@@ -13,10 +13,16 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, entry } = Astro.props;
-const ogImage = entry?.data.ogImage; // Get the OG image from frontmatter
+const ogImage = entry?.data?.ogImage; // Get the OG image from frontmatter
 
 // Use the ogImage or fallback to a default value
-const image = ogImage || '/default-og-image.jpg'; 
+const image = ogImage ? Image({
+    src: ogImage,
+    alt: title,
+    width: 1200, // Add the required width
+    height: 630  // Add the required height
+  }).src : '/default-og-image.jpg'; 
+
 ---
 
 <!-- Global Metadata -->
@@ -42,11 +48,11 @@ const image = ogImage || '/default-og-image.jpg';
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={image} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={image} />
