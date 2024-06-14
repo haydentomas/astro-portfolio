@@ -1,17 +1,13 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import MainLayout from '../layouts/MainLayout.astro';
+
+
+const title = 'About Hayden Tomas - Website Developer';
+const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
+const Name = 'Hayden Tomas - Website Developer';
 ---
 
-<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-</head>
-
-		<Header title={SITE_TITLE} />
-<main>
-
+<MainLayout title={title} description={description}>
 <h1>About Me</h1>
 
 <p>Hi, my name is Suresh Khirwadkar and I'm a 39-year-old doctor with a passion for coding, web development, and technology. When I'm not working at the hospital, you can usually find me experimenting with new programming languages or building websites.</p>
@@ -28,4 +24,5 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	
 
 </main>
-<Footer />
+
+</MainLayout>

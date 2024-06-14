@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import MainLayout from '../../layouts/MainLayout.astro';
 
 // Define a basic structure for the pagination result
 type PaginationResult = {
@@ -49,8 +49,11 @@ type PostItem = {
     };
     slug: string;
 };
+const title = 'Projects Hayden Tomas - Website Developer';
+const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
+const Name = 'Hayden Tomas - Website Developer';
 ---
-<BaseLayout>
+<MainLayout title={title} description={description}>
     <main>
 
         <div class="max-w-md mx-auto">
@@ -77,4 +80,4 @@ type PostItem = {
         </div>
     </main>
     
-</BaseLayout>
+</MainLayout>

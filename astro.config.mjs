@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://astro-blog-with-pagination-template.vercel.app',
+	site: 'https://www.haydentomas.co.uk',
 	integrations: [mdx(), sitemap()],
 });
