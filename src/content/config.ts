@@ -50,6 +50,7 @@ const postsCollection = defineCollection({
       tags: z.array(z.string()),
       projectURL: z.string(),
       pageURL: z.string(),
+      ogImage: z.string().optional(), // Make it optional in case a post doesn't have a custom OG image
       icons: z.array(z.enum(["javascript", "react", "html", /* Add more as needed */])),
       // Add a 'draft' property, which is a boolean false or true no ``
       draft: z.optional(z.boolean()),
