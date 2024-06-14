@@ -3,17 +3,16 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 
-
 const title = 'Hayden Tomas - Website Developer';
 const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
-const permalink = Astro.site.href;
 const Name = 'Hayden Tomas - Website Developer';
 ---
+<MainLayout title={title} description={description}>
 
-<MainLayout title={title} description={description} permalink={permalink}>
   <div class="container">
 	<h1>{Name}</h1>
 	<p>
 	  I'm a UK based front-end developer who focuses on building fast, secure websites that are accessible to all.
 	</p>
   </div>
+</MainLayout>
