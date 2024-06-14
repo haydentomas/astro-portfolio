@@ -3,6 +3,7 @@
 
 import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import Icon from '../../components/Icon.astro';
 
 
 export async function getStaticPaths() {
@@ -52,7 +53,9 @@ const nextPost = allPosts[currentIndex + 1];
 // console.log('Current Index:', currentIndex);
 ---
 <MarkdownPostLayout frontmatter={entry.data}>
-  
+  <div class="flex gap-2 mt-2"> 
+    {entry.data.icons?.map(icon => <Icon name={icon} />)}
+</div>
   <Content />
 
   <div style="width: 600px; margin: auto auto; text-align: center;">
