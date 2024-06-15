@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://www.haydentomas.co.uk',
+	site: 'https://astro-cv-portfolio.netlify.app',
 	integrations: [mdx(), sitemap()],
 });
