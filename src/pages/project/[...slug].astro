@@ -2,7 +2,7 @@
 // Import necessary utilities
 
 import { getCollection } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
 
 
 export async function getStaticPaths() {
@@ -51,7 +51,7 @@ const nextPost = allPosts[currentIndex + 1];
 // console.log('Next Post:', nextPost);
 // console.log('Current Index:', currentIndex);
 ---
-<MarkdownPostLayout frontmatter={entry.data}>
+<PostLayout frontmatter={entry.data}>
   
   <Content />
 
@@ -86,5 +86,5 @@ const nextPost = allPosts[currentIndex + 1];
 
   </div>
 
-</MarkdownPostLayout>
+</PostLayout>
 
