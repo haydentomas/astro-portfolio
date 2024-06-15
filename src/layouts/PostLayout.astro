@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import PrimaryMeta from "../components/PrimaryMeta.astro"
-import { Image } from "astro:assets"; // Import Astro's Image component
+import { getFormattedImageURL } from "../utils/image";
 import '../styles/global.css';
 
 import { Picture } from "astro:assets"; // Import Astro's built-in image component
@@ -15,27 +15,16 @@ const rootUrl = new URL(Astro.url).origin
 <html lang="en">
 <head>
   <PrimaryMeta title={frontmatter.title} description={frontmatter.description} />
-  <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={frontmatter.title} />
 <meta property="og:description" content={frontmatter.description} />
-
-      <meta property="og:image" content={rootUrl + frontmatter.image} />
-
-    
-
-
-<!-- Twitter -->
+<meta property="og:image" content={rootUrl + frontmatter.image.src + "?format=webp"} />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
-
-      <meta property="twitter:image" content={rootUrl + frontmatter.image} />
-
-
-
+<meta property="twitter:image" content={rootUrl + frontmatter.image.src + "?format=webp"} />
 </head>
 <body>
   <div class="layout">
