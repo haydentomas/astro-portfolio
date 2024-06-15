@@ -6,9 +6,8 @@ import '../styles/global.css';
 
 
 const { frontmatter, current } = Astro.props;
-const siteUrl = new URL(Astro.url).origin
 
-
+const rootUrl = new URL(Astro.url).origin
 ---
 
 
@@ -22,7 +21,7 @@ const siteUrl = new URL(Astro.url).origin
 <meta property="og:description" content={frontmatter.description} />
 
 
-      <meta property="og:image" content={Astro.url + frontmatter.image.src} />
+      <meta property="og:image" content={rootUrl  + frontmatter.image.src} />
 
 
 <!-- Twitter -->
@@ -31,7 +30,7 @@ const siteUrl = new URL(Astro.url).origin
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
 
-      <meta property="twitter:image" content={Astro.url + frontmatter.image.src} />
+      <meta property="twitter:image" content={rootUrl  + frontmatter.image.src} />
 
 
 </head>
