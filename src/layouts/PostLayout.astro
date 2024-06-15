@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro"
 import PrimaryMeta from "../components/PrimaryMeta.astro"
 import '../styles/global.css';
 
-
+import { Picture } from "astro:assets"; // Import Astro's built-in image component
 const { frontmatter, current } = Astro.props;
 
 const rootUrl = new URL(Astro.url).origin
@@ -21,7 +21,7 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="og:description" content={frontmatter.description} />
 
 
-      <meta property="og:image" content={rootUrl  + frontmatter.image.src} />
+<meta property="og:image" content={rootUrl + frontmatter.image.src + "?format=webp"} />
 
 
 <!-- Twitter -->
@@ -30,7 +30,7 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
 
-      <meta property="twitter:image" content={rootUrl  + frontmatter.image.src} />
+<meta property="twitter:image" content={rootUrl + frontmatter.image.src + "?format=webp"} />
 
 
 </head>
