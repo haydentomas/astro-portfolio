@@ -2,7 +2,8 @@
 // Import necessary utilities
 
 import { getCollection } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+// import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
 import Icon from '../../components/Icon.astro';
 
 
@@ -52,7 +53,7 @@ const nextPost = allPosts[currentIndex + 1];
 // console.log('Next Post:', nextPost);
 // console.log('Current Index:', currentIndex);
 ---
-<MarkdownPostLayout frontmatter={entry.data}>
+<!-- <MarkdownPostLayout frontmatter={entry.data}>
   <div class="flex gap-2 mt-2"> 
     {entry.data.icons?.map(icon => <Icon name={icon} />)}
 </div>
@@ -60,14 +61,6 @@ const nextPost = allPosts[currentIndex + 1];
 
   <div style="width: 600px; margin: auto auto; text-align: center;">
 
-    <!-- Previous Post Link -->
-  
-    <!-- <div>
-      <a href={`/posts/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700">Previous: {previousPost.data.title}
-       {previousPost.data.image && (
-          <Picture src={previousPost.data.image.url} alt={previousPost.data.image.alt} height="200" width="300"/>)}
-      </a> 
-    </div> -->
 
 
 
@@ -77,17 +70,47 @@ const nextPost = allPosts[currentIndex + 1];
 
     
 
-    <!-- Next Post Link -->
-  
+ 
    
     {nextPost && (
        <a  style="margin-right: 0; text-align: right" href={`/posts/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700">
-        Next :{nextPost.data.title} ➡️
+        Next:{nextPost.data.title} ➡️
       </a>
     )}
 
 
   </div>
 
-</MarkdownPostLayout>
+</MarkdownPostLayout> -->
 
+
+
+<PostLayout frontmatter={entry.data}>
+  <div class="flex gap-2 mt-2"> 
+    {entry.data.icons?.map(icon => <Icon name={icon} />)}
+</div>
+  <Content />
+
+  <div style="width: 600px; margin: auto auto; text-align: center;">
+
+
+
+
+    {previousPost && (
+      <a style="margin-left: 0; text-align: left" href={`/posts/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700"> ⬅️ Previous: {previousPost.data.title}</a>
+   )}
+
+    
+
+ 
+   
+    {nextPost && (
+       <a  style="margin-right: 0; text-align: right" href={`/posts/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700">
+        Next:{nextPost.data.title} ➡️
+      </a>
+    )}
+
+
+  </div>
+
+</PostLayout>
