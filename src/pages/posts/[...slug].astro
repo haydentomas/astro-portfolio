@@ -21,7 +21,7 @@ const allPosts = (await getCollection('posts'))
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
 
-// Log allPosts to inspect their structure
+// Log allPosts to inspect their structure.
 // console.log('All Posts:', allPosts);
 
 // Function to find the current post index
