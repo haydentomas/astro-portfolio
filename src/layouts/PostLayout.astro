@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import PrimaryMeta from "../components/PrimaryMeta.astro"
-import { getFormattedImageURL } from "../utils/image";
+import { Image } from "astro:assets"; // Import Astro's Image component
 import '../styles/global.css';
 
 import { Picture } from "astro:assets"; // Import Astro's built-in image component
@@ -20,7 +20,12 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={frontmatter.title} />
 <meta property="og:description" content={frontmatter.description} />
-<meta property="og:image" content={getFormattedImageURL(frontmatter.image.src, 'webp')} />
+{
+    frontmatter.image && (
+      <meta property="og:image" content={rootUrl + frontmatter.image} />
+    )
+  }
+    
 
 
 <!-- Twitter -->
@@ -29,7 +34,11 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
 
-<meta property="twitter:image" content={getFormattedImageURL(frontmatter.image.src, 'webp')} />
+{
+    frontmatter.image && (
+      <meta property="twitter:image" content={rootUrl + frontmatter.image} />
+    )
+  }
 
 
 </head>
