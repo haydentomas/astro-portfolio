@@ -43,7 +43,11 @@ const siteUrl = new URL(Astro.url).origin
     <Header current={current} />
 
     <main>
-  
+        {
+            frontmatter.image && ( // conditionally renders image if an image exists
+              <img src={frontmatter.image.src} alt={frontmatter.image.alt} />
+            )
+          }
     
       <slot />
    
