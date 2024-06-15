@@ -31,11 +31,9 @@ const siteUrl = new URL(Astro.url).origin
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
-{
-    frontmatter.image && (
-      <meta property="twitter:image" content={Astro.url + frontmatter.image.src} />
-    )
-  }
+
+      <meta property="twitter:image" content={frontmatter.image.src} />
+
 
 </head>
 <body>
