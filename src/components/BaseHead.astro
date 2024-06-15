@@ -12,16 +12,10 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, entry } = Astro.props;
-const ogImage = entry?.data?.ogImage; // Get the OG image from frontmatter
+const { title, description, image, entry } = Astro.props;
+
 
 // Use the ogImage or fallback to a default value
-const image = ogImage ? Image({
-    src: ogImage,
-    alt: title,
-    width: 1200, // Add the required width
-    height: 630  // Add the required height
-  }).src : '/default-og-image.jpg'; 
 
 ---
 

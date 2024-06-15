@@ -13,10 +13,11 @@ export interface Props {
   image?: string;  // Add the image prop here
 }
 const { title, description, current, image } = Astro.props;
+const rootUrl = new URL(Astro.url).origin; // Get root URL
 ---
 <html lang="en">
 <head>
-  <BaseHead title={title} description={description} image={image}/>
+  <BaseHead title={title} description={description} image={image ? `${rootUrl}${image}` : undefined} />
 </head>
 <body>
   <div class="layout">
