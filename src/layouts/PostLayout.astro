@@ -20,11 +20,9 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={frontmatter.title} />
 <meta property="og:description" content={frontmatter.description} />
-{
-    frontmatter.image && (
+
       <meta property="og:image" content={rootUrl + frontmatter.image} />
-    )
-  }
+
     
 
 
@@ -34,11 +32,8 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
 
-{
-    frontmatter.image && (
       <meta property="twitter:image" content={rootUrl + frontmatter.image} />
-    )
-  }
+
 
 
 </head>
