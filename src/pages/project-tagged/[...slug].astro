@@ -14,40 +14,30 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// Fetch ALL posts from "projectstagged" collection
+// Fetch ALL posts
 const allPosts = await getCollection("projectstagged");
 
-// Sort the posts
-const sortedPosts = allPosts.sort(
+// Filter posts based on tag (if applicable)
+const postsWithTag = entry.data.tags
+  ? allPosts.filter(post => post.data.tags && post.data.tags.includes(entry.data.tags[0]))
+  : allPosts; // If no tags, use all posts
+
+// Sort the filtered posts
+const sortedPosts = postsWithTag.sort(
   (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 
 const findCurrentPostIndex = (slug: string) => {
-  // Find index within the sorted posts
+  // Find index within the filtered and sorted posts
   return sortedPosts.findIndex(post => post.slug === slug);
 };
 
 const currentSlug = Astro.params.slug; 
 const currentIndex = findCurrentPostIndex(currentSlug);
 
-// Get neighboring posts ONLY from "projectstagged" collection
+// Get neighboring posts from the filtered and sorted array
 const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
-
-
-// Filter the posts that match the same tag
-const filteredPosts = allPosts.filter(post => {
-  return (post.data.tags || []).some(tag => (entry.data.tags || []).includes(tag));
-});
-
-// Get neighboring posts from the filtered and sorted array
-const filteredPreviousPost = filteredPosts.filter(post => {
-  return new Date(post.data.pubDate).getTime() < new Date(entry.data.pubDate).getTime();
-}).sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())[0];
-
-const filteredNextPost = filteredPosts.filter(post => {
-  return new Date(post.data.pubDate).getTime() > new Date(entry.data.pubDate).getTime();
-}).sort((a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime())[0];
 
 
 ---
@@ -63,15 +53,16 @@ const filteredNextPost = filteredPosts.filter(post => {
   <Content />
 
   <div class="w-auto mx-auto text-center mt-8">
-    {/* Show Previous link if there's a previous post in the same tag category */}
-    {filteredPreviousPost && (
-      <a href={`/project-tagged/${filteredPreviousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {filteredPreviousPost.data.title}</a>
-    )}
 
-    {/* Show Next link if there's a next post in the same tag category */}
-    {filteredNextPost && (
-      <a href={`/project-tagged/${filteredNextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {filteredNextPost.data.title} ➡️</a>
-    )}
-  </div>
+  {/* Only show Previous if it exists and is NOT the first post */}
+  {previousPost && (
+    <a href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
+  )}
+  
+  {/* Only show Next if it exists and is NOT the last post */}
+  {nextPost && (
+    <a href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
+  )}
+</div>
 
 </PostLayout>
