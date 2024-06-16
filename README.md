@@ -16,7 +16,7 @@ followed by
 
 `npm install`
 
-then deploy or change the code as you like!
+then deploy or change the code as you like!!
 
 ## 📣 Features 
 
