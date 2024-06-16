@@ -14,22 +14,30 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// Fetch posts ONLY from the "projectstagged" collection
-const allPosts = (await getCollection('projectstagged'))
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+// Fetch ALL posts
+const allPosts = await getCollection("projectstagged");
+
+// Filter posts based on tag (if applicable)
+const postsWithTag = entry.data.tags
+  ? allPosts.filter(post => post.data.tags && post.data.tags.includes(entry.data.tags[0]))
+  : allPosts; // If no tags, use all posts
+
+// Sort the filtered posts
+const sortedPosts = postsWithTag.sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 
 const findCurrentPostIndex = (slug: string) => {
-  // Find index within the "projectstagged" posts
-  return allPosts.findIndex(post => post.slug === slug);
+  // Find index within the filtered and sorted posts
+  return sortedPosts.findIndex(post => post.slug === slug);
 };
 
 const currentSlug = Astro.params.slug; 
 const currentIndex = findCurrentPostIndex(currentSlug);
 
-// Get neighboring posts with error handling and collection-specific filtering
-const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
-
+// Get neighboring posts from the filtered and sorted array
+const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 
 
 ---
