@@ -47,12 +47,12 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
   {/* Only show Previous if it exists and is NOT the first post */}
   {previousPost && (
-    <a href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
+    <a href={`/project/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
   )}
   
   {/* Only show Next if it exists and is NOT the last post */}
   {nextPost && (
-    <a href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
+    <a href={`/project/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
   )}
 </div>
 
