@@ -18,6 +18,8 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 
+
+
 // Assuming you have a `posts` collection
 // Fetching posts and sorting them by pubDate in descending order
 const allPosts = (await getCollection('projectstagged'))
@@ -52,6 +54,14 @@ const nextPost = allPosts[currentIndex + 1];
 // console.log('Previous Post:', previousPost);
 // console.log('Next Post:', nextPost);
 // console.log('Current Index:', currentIndex);
+
+
+
+
+// import { navigate } from 'astro/navigation'; 
+// const goToPost = (slug) => {
+//     navigate(`/project-tagged/${slug}`);
+// };
 ---
 
 
@@ -68,7 +78,7 @@ const nextPost = allPosts[currentIndex + 1];
 
 
 
-    {previousPost && (
+    <!-- {previousPost && (
       <a style="margin-left: 0; text-align: left" href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700"> ⬅️ Previous: {previousPost.data.title}</a>
    )}
 
@@ -80,7 +90,15 @@ const nextPost = allPosts[currentIndex + 1];
        <a  style="margin-right: 0; text-align: right" href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700">
         Next:{nextPost.data.title} ➡️
       </a>
-    )}
+    )} -->
+
+    {previousPost && (
+      <a style="margin-left: 0; text-align: left" href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700"> ⬅️ Previous: {previousPost.data.title}</a>
+  )}
+  
+  {nextPost && (
+      <a style="margin-right: 0; text-align: right" href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700"> Next:{nextPost.data.title} ➡️</a>
+  )}
 
 
   </div>
