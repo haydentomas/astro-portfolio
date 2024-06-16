@@ -19,12 +19,22 @@ type PaginationResult = {
 
 type PaginateFunction = (items: any[], config: { pageSize: number }) => Promise<PaginationResult>;
 
-export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-    const pages = await getCollection('projectstagged', ({ data }) => {
-        return data.draft !== true; // Filter out drafts if necessary
-    });
-    return paginate(pages, { pageSize: 3}); // Adjust pageSize as needed
+    export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const allPages = await getCollection('projectstagged', ({ data }) => {
+    return data.draft !== true; // Filter out drafts
+  });
+
+  // Sort the pages array by pubDate (descending order - newest first)
+  allPages.sort((a, b) => {
+    // Handle cases where pubDate might be missing or invalid
+    const dateA = a.data.pubDate ? new Date(a.data.pubDate) : new Date(0);
+    const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return paginate(allPages, { pageSize: 3 }); // Adjust pageSize as needed
 }
+
 
 const { page }: { page: PaginationInfo } = Astro.props;
 const { prev, next } = page.url;
