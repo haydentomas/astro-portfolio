@@ -17,12 +17,25 @@ type PaginationResult = {
 
 type PaginateFunction = (items: any[], config: { pageSize: number }) => Promise<PaginationResult>;
 
-export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-    const pages = await getCollection('posts', ({ data }) => {
-        return data.draft !== true; // Filter out drafts if necessary
-    });
-    return paginate(pages, { pageSize: 3}); // Adjust pageSize as needed
+    export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const allPages = await getCollection('posts', ({ data }) => {
+    return data.draft !== true; // Filter out drafts
+  });
+
+  // Sort the pages array by pubDate (descending order - newest first)
+  allPages.sort((a, b) => {
+    // Handle cases where pubDate might be missing or invalid
+    const dateA = a.data.pubDate ? new Date(a.data.pubDate) : new Date(0);
+    const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return paginate(allPages, { pageSize: 3 }); // Adjust pageSize as needed
 }
+
+
+
+
 
 const { page }: { page: PaginationInfo } = Astro.props;
 const { prev, next } = page.url;
@@ -46,6 +59,7 @@ type PostItem = {
         description: string;
         image: string;
         imageAlt: string;
+        pubDate?: string; // Make pubDate optional
     };
     slug: string;
 };
@@ -64,6 +78,9 @@ const Name = 'Hayden Tomas - Website Developer';
                 <a href={`/posts/${slug}`} class="block text-black no-underline">
                     <div class="bg-gray-200 rounded-lg border border-gray-300 p-4 my-2">
                         <h3 class="text-xl font-bold">{data.title}</h3>
+                   {data.pubDate && ( /* Conditionally display pubDate if it exists */
+                            <p class="pub-date">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
+                        )}
                         <p>{data.description}</p>
                         <div class="flex justify-center items-center h-full">
                             <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="m-auto"/>

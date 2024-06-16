@@ -43,7 +43,12 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
 
 <PostLayout frontmatter={entry.data}>
-
+  <div class="post-header"> {/* Added a container for post metadata */}
+    <h1>{entry.data.title}</h1>
+    {entry.data.pubDate && ( /* Conditionally display pubDate if it exists */
+        <p class="pub-date">Published: {new Date(entry.data.pubDate).toLocaleDateString()}</p>
+    )}
+</div>
   <Content />
 
   <div class="w-auto mx-auto text-center mt-8"> 
