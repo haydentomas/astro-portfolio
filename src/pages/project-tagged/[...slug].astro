@@ -63,16 +63,15 @@ const filteredNextPost = filteredPosts.filter(post => {
   <Content />
 
   <div class="w-auto mx-auto text-center mt-8">
+    {/* Show Previous link if there's a previous post in the same tag category */}
+    {filteredPreviousPost && (
+      <a href={`/project-tagged/${filteredPreviousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {filteredPreviousPost.data.title}</a>
+    )}
 
-  {/* Only show Previous if it exists and is NOT the first post */}
-  {previousPost && (
-    <a href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
-  )}
-  
-  {/* Only show Next if it exists and is NOT the last post */}
-  {nextPost && (
-    <a href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
-  )}
-</div>
+    {/* Show Next link if there's a next post in the same tag category */}
+    {filteredNextPost && (
+      <a href={`/project-tagged/${filteredNextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {filteredNextPost.data.title} ➡️</a>
+    )}
+  </div>
 
 </PostLayout>
