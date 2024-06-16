@@ -14,30 +14,40 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// Fetch ALL posts
+// Fetch ALL posts from "projectstagged" collection
 const allPosts = await getCollection("projectstagged");
 
-// Filter posts based on tag (if applicable)
-const postsWithTag = entry.data.tags
-  ? allPosts.filter(post => post.data.tags && post.data.tags.includes(entry.data.tags[0]))
-  : allPosts; // If no tags, use all posts
-
-// Sort the filtered posts
-const sortedPosts = postsWithTag.sort(
+// Sort the posts
+const sortedPosts = allPosts.sort(
   (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 
 const findCurrentPostIndex = (slug: string) => {
-  // Find index within the filtered and sorted posts
+  // Find index within the sorted posts
   return sortedPosts.findIndex(post => post.slug === slug);
 };
 
 const currentSlug = Astro.params.slug; 
 const currentIndex = findCurrentPostIndex(currentSlug);
 
-// Get neighboring posts from the filtered and sorted array
+// Get neighboring posts ONLY from "projectstagged" collection
 const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+
+
+// Filter the posts that match the same tag
+const filteredPosts = allPosts.filter(post => {
+  return (post.data.tags || []).some(tag => (entry.data.tags || []).includes(tag));
+});
+
+// Get neighboring posts from the filtered and sorted array
+const filteredPreviousPost = filteredPosts.filter(post => {
+  return new Date(post.data.pubDate).getTime() < new Date(entry.data.pubDate).getTime();
+}).sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())[0];
+
+const filteredNextPost = filteredPosts.filter(post => {
+  return new Date(post.data.pubDate).getTime() > new Date(entry.data.pubDate).getTime();
+}).sort((a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime())[0];
 
 
 ---
