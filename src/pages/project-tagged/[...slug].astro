@@ -34,7 +34,10 @@ const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1]
 
 
 <PostLayout frontmatter={entry.data}>
-  {/* ... (your other content) ... */}
+  <div class="flex gap-2 mt-2"> 
+    {entry.data.icons?.map(icon => <Icon name={icon} />)}
+  </div>
+  <Content />
 
   <div class="w-auto mx-auto text-center mt-8"> 
     {/* Only show Previous if it's NOT the first post */}
