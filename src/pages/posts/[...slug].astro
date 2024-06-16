@@ -28,9 +28,10 @@ const currentSlug = Astro.params.slug;
 const currentIndex = findCurrentPostIndex(currentSlug);
 const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
-
+---
 
 ---
+
 <PostLayout frontmatter={entry.data}>
 
   <Content />
@@ -46,4 +47,5 @@ const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1]
   </div>
 
 </PostLayout>
+
 
