@@ -52,14 +52,17 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
   <Content />
 
-  <div class="w-auto mx-auto text-center mt-8">
-    {currentIndex > 0 && previousPost && (
-      <a href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
-    )}
+  div class="w-auto mx-auto text-center mt-8">
 
-    {currentIndex < allPosts.length - 1 && nextPost && (
-      <a href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
-    )}
-  </div>
+  {/* Only show Previous if it exists and is NOT the first post */}
+  {previousPost && (
+    <a href={`/project-tagged/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
+  )}
+  
+  {/* Only show Next if it exists and is NOT the last post */}
+  {nextPost && (
+    <a href={`/project-tagged/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
+  )}
+</div>
 
 </PostLayout>
