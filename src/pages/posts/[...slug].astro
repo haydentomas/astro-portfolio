@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
-
+// import Icon from '../../components/Icon.astro'; // Commented out for this example
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
+  const blogEntries = await getCollection('posts'); // Note: "posts" is used here, adjust as needed
   return blogEntries.map(entry => ({
     params: { slug: entry.slug }, 
     props: { entry },
@@ -15,7 +15,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Fetch ALL posts
-const allPosts = await getCollection("posts");
+const allPosts = await getCollection("posts"); // Note: "posts" is used here, adjust as needed
 
 // Filter posts based on tag (if applicable)
 const postsWithTag = entry.data.tags
@@ -38,19 +38,21 @@ const currentIndex = findCurrentPostIndex(currentSlug);
 // Get neighboring posts from the filtered and sorted array
 const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
----
 
 ---
+
 
 <PostLayout frontmatter={entry.data}>
 
   <Content />
 
-  <div class="w-auto mx-auto text-center mt-8"> {/* Centered and better spacing */}
-    {previousPost && (
+  <div class="w-auto mx-auto text-center mt-8"> 
+    {/* Only show Previous if currentIndex is NOT 0 (not the first post) */}
+    {currentIndex !== 0 && previousPost && (
       <a href={`/posts/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
     )}
 
+    {/* Only show Next if it's NOT the last post */}
     {nextPost && (
       <a href={`/posts/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
     )}
