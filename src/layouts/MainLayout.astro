@@ -20,7 +20,7 @@ const rootUrl = new URL(Astro.url).origin; // Get root URL
   <BaseHead title={title} description={description} image={image ? `${rootUrl}${image}` : undefined} />
 </head>
 <body>
-  <div class="layout">
+  <div class="layout dark:bg-gray-900">
     <Header current={current} />
 
     <main>
