@@ -1,6 +1,6 @@
 ---
 const { current = '' } = Astro.props;
-import Nav from "./HeaderNav.astro";
+import Nav from "./Nav.astro";
 ---
 
 
@@ -50,7 +50,8 @@ import Nav from "./HeaderNav.astro";
                     </button>
                 </div>
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-					<Nav current={current} />
+					
+					  <Nav />
                     
                 </div>
             </div>
