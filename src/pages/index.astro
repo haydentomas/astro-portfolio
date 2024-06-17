@@ -33,22 +33,22 @@ posts.sort((a, b) => {
 const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertion
 ---
 <MainLayout title={title} description={description} image={image}>
-    <div class="container">
+    <main class="container">
         <h1>{Name}</h1>
         <p>
             I'm a UK based front-end developer who focuses on building fast, secure websites that are accessible to all.
         </p>
 
-        <div class="max-w-md mx-auto">
+        <div class="">
             {latestPosts.map(({ data, slug }) => ( 
                 <a href={`/posts/${slug}`} class="block text-black no-underline">
-                    <div class="bg-gray-200 rounded-lg border border-gray-300 p-4 my-2">
-                        <h3 class="text-xl font-bold">{data.title}</h3>
+                    <div class="">
+                        <h3 class="">{data.title}</h3>
                         {data.pubDate && ( /* Conditionally display pubDate if it exists */
                             <p class="pub-date">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                         )}
                         <p>{data.description}</p>
-                        <div class="flex justify-center items-center h-full">
+                        <div class="">
                             <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="m-auto"/>
                         </div>
                     </div>
@@ -57,5 +57,5 @@ const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertio
         </div>
 
         <h2>latest Projects</h2>
-    </div>
+    </main>
 </MainLayout>

@@ -69,15 +69,15 @@ const Name = 'Hayden Tomas - Website Developer';
 <MainLayout title={title} description={description}>
     <main>
 
-        <div class="max-w-md mx-auto">
+        <div class="">
             {page.data.map(({ data, slug }) => (
-                <a href={`/project-tagged/${slug}`} class="block text-black no-underline">
-                    <div class="bg-gray-200 rounded-lg border border-gray-300 p-4 my-2">
-                        <h3 class="text-xl font-bold">{data.title}</h3>
+                <a href={`/project-tagged/${slug}`} class="">
+                    <div class="">
+                        <h3 class="">{data.title}</h3>
                         <p>{data.description}</p>
                         {data.icons?.map(icon => <Icon name={icon} />)}
-                        <div class="flex justify-center items-center h-full">
-                            <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="m-auto"/>
+                        <div class="">
+                            <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=""/>
                         </div>
                     </div>
                 </a>
