@@ -1,0 +1,7 @@
+p {
+    @apply text-2xl mb-4 font-light dark:text-white
+}
+
+h2 {
+    @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white
+}
