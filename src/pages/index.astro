@@ -54,31 +54,102 @@ const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertio
             </div>                
         </div>
     </section>
+    <main>     
 
 
-    <main class="container">
-        <h1>{Name}</h1>
-        <p>
-            I'm a UK based front-end developer who focuses on building fast, secure websites that are accessible to all.
-        </p>
 
-        <div class="">
-            {latestPosts.map(({ data, slug }) => ( 
-                <a href={`/posts/${slug}`} class="block text-black no-underline">
-                    <div class="">
-                        <h3 class="">{data.title}</h3>
-                        {data.pubDate && ( /* Conditionally display pubDate if it exists */
-                            <p class="pub-date">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
-                        )}
-                        <p>{data.description}</p>
-                        <div class="">
-                            <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="m-auto"/>
-                        </div>
-                    </div>
-                </a>
-            ))}
+
+     
+   
+
+
+
+
+<section class="w-full py-8 sm:py-12 md:py-16">
+    <div class="mx-auto">
+        <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-200">
+            <h2 class="text-3xl font-bold dark:text-white">Latest Posts</h2>
+            <a href="/blog" class="flex items-center text-base font-semibold text-gray-900 dark:text-white group">
+                <span>View More Posts</span>
+                <svg class="w-4 h-4 mt-0.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
         </div>
 
-        <h2>latest Projects</h2>
+        <div class="grid grid-cols-12 gap-6">
+
+
+
+        
+          
+              
+              
+          
+
+
+
+            {latestPosts.map(({ data, slug }) => ( 
+
+
+<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
+
+
+    <a href={`/posts/${slug}`} class="relative block w-full h-64 overflow-hidden rounded">
+                  
+                    <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="object-cover object-center w-full h-full transition duration-500 ease-out transform scale-100 hover:scale-105"/>
+                </a>
+                {data.pubDate && ( /* Conditionally display pubDate if it exists */
+                        <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
+                    )}
+             <a href="#_" class="block text-2xl font-medium leading-tight text-gray-700 dark:text-white hover:text-gray-900">{data.title}</a>
+
+
+   
+               
+               
+                
+         
+
+
+
+
+</div>
+
+            
+        ))}
+ 
+
+
+
+            
+        </div>
+
+
+       
+
+    
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
     </main>
 </MainLayout>

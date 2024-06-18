@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import MainLayout from '../../layouts/MainLayout.astro';
+import Icon from '../../components/Icon.astro';
+import type { IconName } from '../../types';
 
 // Define a basic structure for the pagination result
 type PaginationResult = {
@@ -18,7 +20,7 @@ type PaginationResult = {
 type PaginateFunction = (items: any[], config: { pageSize: number }) => Promise<PaginationResult>;
 
     export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  const allPages = await getCollection('posts', ({ data }) => {
+  const allPages = await getCollection('projects', ({ data }) => {
     return data.draft !== true; // Filter out drafts
   });
 
@@ -32,7 +34,6 @@ type PaginateFunction = (items: any[], config: { pageSize: number }) => Promise<
 
   return paginate(allPages, { pageSize: 3 }); // Adjust pageSize as needed
 }
-
 
 
 const { page }: { page: PaginationInfo } = Astro.props;
@@ -52,13 +53,14 @@ type PaginationInfo = {
 
 // Define a type for the individual post item
 type PostItem = {
-    data: {
-        title: string;
-        description: string;
-        image: string;
-        imageAlt: string;
-    };
-    slug: string;
+  data: {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    icons: IconName[]; // Add the icons property
+  };
+  slug: string;
 };
 const title = 'Projects Hayden Tomas - Website Developer';
 const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
@@ -73,6 +75,7 @@ const Name = 'Hayden Tomas - Website Developer';
                     <div class="">
                         <h3 class="">{data.title}</h3>
                         <p>{data.description}</p>
+                        {data.icons?.map(icon => <Icon name={icon} />)}
                         <div class="">
                             <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=""/>
                         </div>
