@@ -31,6 +31,12 @@ posts.sort((a, b) => {
     return dateB.getTime() - dateA.getTime();
 });
 const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertion
+
+
+// Import the <Image /> component
+import { Image } from "astro:assets"
+// Import a reference to the image itself
+import whatIdoImage from "../assets/phone-mockup.png"
 ---
 <MainLayout title={title} description={description} image={image}>
 
@@ -50,7 +56,12 @@ const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertio
                 </a> 
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+                
+                <Image loading="eager" src={whatIdoImage}
+                widths={[240, 540, 720, whatIdoImage.width]}
+                sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${whatIdoImage.width}px`}
+                alt="Hayden Tomas = Front end website developer" class=""
+              />
             </div>                
         </div>
     </section>
