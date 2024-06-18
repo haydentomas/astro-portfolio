@@ -1,7 +1,13 @@
+
+
+h1 {
+    @apply max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white
+}
+h2 {
+    @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white
+}
+
 p {
     @apply text-2xl mb-4 font-light dark:text-white
 }
 
-h2 {
-    @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white
-}
