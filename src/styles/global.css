@@ -11,3 +11,17 @@ p {
     @apply text-2xl mb-4 font-light dark:text-white
 }
 
+footer {
+    h2 {
+        @apply mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white;
+    }
+    ul {
+        @apply text-gray-500 dark:text-gray-400;
+    }
+    li {
+        @apply mb-4;
+    a {
+        @apply hover:underline
+    }
+    }
+}
