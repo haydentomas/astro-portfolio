@@ -30,7 +30,7 @@ posts.sort((a, b) => {
     const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
     return dateB.getTime() - dateA.getTime();
 });
-const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertion
+const latestPosts = posts.slice(0, 4) as unknown as PostItem[]; // Type assertion
 
 
 // Import the <Image /> component
@@ -132,7 +132,7 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
             {latestPosts.map(({ data, slug }) => ( 
 
 
-<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
+<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-3">
 
 
 

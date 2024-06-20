@@ -16,18 +16,25 @@ import Nav from "./Nav.astro";
 	<header>
 
 		<div class="container py-10">
-   <nav class=" border-gray-200  py-2.5">
-            <div class="flex flex-wrap justify-between items-center mx-auto">
-                <a href="https://flowbite.com" class="flex items-center">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                </a>
-                <div class="flex items-center lg:order-2">
+   <nav class=" border-gray-200">
+            <div class="flex flex-wrap justify-between items-center">
+                
+                <div class="items-center flex gap-5 max-w-60">
+                    <figure style="aspect-ratio: 1 / 1;" class="w-14 h-14 sm:w-20 sm:h-20 ">
+                      <picture
+                        ><source srcset="https://geary.co/wp-content/uploads/kg-headshot-square-2023-150x150.webp 150w,https://geary.co/wp-content/uploads/kg-headshot-square-2023-640x640.webp 640w,https://geary.co/wp-content/uploads/kg-headshot-square-2023-768x768.webp 768w,https://geary.co/wp-content/uploads/kg-headshot-square-2023-480x480.webp 480w,https://geary.co/wp-content/uploads/kg-headshot-square-2023-720x720.webp 720w,https://geary.co/wp-content/uploads/kg-headshot-square-2023-600x600.webp 600w,https://geary.co/wp-content/uploads/kg-headshot-square-2023.webp 800w" type="image/webp" class="bg-black/[0]" />
+                        <img src="https://geary.co/wp-content/uploads/kg-headshot-square-2023-150x150.jpg" srcset="https://geary.co/wp-content/uploads/kg-headshot-square-2023-150x150.jpg 150w, https://geary.co/wp-content/uploads/kg-headshot-square-2023-640x640.jpg 640w, https://geary.co/wp-content/uploads/kg-headshot-square-2023-768x768.jpg 768w, https://geary.co/wp-content/uploads/kg-headshot-square-2023-480x480.jpg 480w, https://geary.co/wp-content/uploads/kg-headshot-square-2023-720x720.jpg 720w, https://geary.co/wp-content/uploads/kg-headshot-square-2023-600x600.jpg 600w, https://geary.co/wp-content/uploads/kg-headshot-square-2023.jpg 800w" style="aspect-ratio: auto 150 / 150;" class="object-cover w-full h-full max-w-full border-2 border-teal-400 border-solid rounded-full" />
+                      </picture>
+                    </figure>
+                    <div class="flex-col flex max-w-full">
+                      <a href="/" class="text-white font-bold sm:text-3xl max-w-full">Hayden Tomas</a>
+                      <div class="text-neutral-400 text-sm w-80 max-w-full">WordPress / Astro / JS </div>
+                    </div>
+                  </div>
+                <div class="flex lg:order-2">
                   
-						
-                    <a href="'"
-                        class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get
-                        started</a>
+						<button class="hidden md:inline-flex  items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">I am a button</button>
+                    
 						<button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
 							<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
 							<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
@@ -49,7 +56,7 @@ import Nav from "./Nav.astro";
                         </svg>
                     </button>
                 </div>
-                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                <div class="hidden justify-betweenx items-centerr w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
 					
 					  <Nav />
                     

@@ -25,3 +25,18 @@ footer {
     }
     }
 }
+
+
+.logoholder {
+
+    grid-template-columns: 35px auto;
+    @apply justify-center gap-2 grid 
+}
+
+.logo {
+    @apply grid justify-center items-center
+}
+.logotext {
+    display:flex;
+    flex-direction:column;
+}
