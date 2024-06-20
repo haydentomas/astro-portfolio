@@ -24,9 +24,11 @@ const rootUrl = new URL(Astro.url).origin; // Get root URL
     <Header current={current} />
 
     <main>
-  
+
     
-      <slot />
+   <div class="container">
+    <slot />
+   </div>
    
   </main>
  
@@ -100,7 +102,6 @@ themeToggleBtn.addEventListener('click', function() {
     flex: 1;
     position: relative;
     margin: 0 auto;
-    max-width: 1400px;
     padding: 1em 2em;
     box-sizing: border-box;
     width: 100%;
