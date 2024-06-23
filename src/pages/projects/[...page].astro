@@ -20,7 +20,7 @@ type PaginationResult = {
 type PaginateFunction = (items: any[], config: { pageSize: number }) => Promise<PaginationResult>;
 
     export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  const allPages = await getCollection('projects', ({ data }) => {
+  const allPages = await getCollection('projectstagged', ({ data }) => {
     return data.draft !== true; // Filter out drafts
   });
 
@@ -62,7 +62,7 @@ type PostItem = {
   };
   slug: string;
 };
-const title = 'Projects Hayden Tomas - Website Developer';
+const title = 'Projects tagged Hayden Tomas - Website Developer';
 const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
 const Name = 'Hayden Tomas - Website Developer';
 ---

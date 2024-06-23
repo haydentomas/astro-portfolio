@@ -118,18 +118,19 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
                 {latestProjects.map(({ data, slug }) => ( 
                     <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-12">
                         <div class=" bg-white shadow-2xl  dark:bg-gray-800 p-1 grid grid-cols-12">
-                            <a href={`/project-tagged/${slug}`} class="relative block w-full h-full col-span-6">
+                            <a href={`/project/${slug}`} class="relative block w-full h-full col-span-6">
                                 <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
                             </a>
                             <div class="p-20 col-span-6">
-                                <a href={`/project-tagged/${slug}`}>
+                                
+                                <a href={`/project/${slug}`}>
                                     <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
                                 </a>
                                 {data.pubDate && ( /* Conditionally display pubDate if it exists */
                                     <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                                 )}
                                 <p class="mb-3 font-light text-sm text-gray-700 dark:text-white">{data.description}</p>
-                                <ButtonSlim href={`/project-tagged/${slug}`}  aria={data.title}>Read more</ButtonSlim>
+                                <ButtonSlim href={`/project/${slug}`}  aria={data.title}>Read more</ButtonSlim>
                             </div>
                         </div>
                     </div>       

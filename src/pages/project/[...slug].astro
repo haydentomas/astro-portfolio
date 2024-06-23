@@ -4,7 +4,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
 import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('projects');
+  const blogEntries = await getCollection('projectstagged');
   return blogEntries.map(entry => ({
     params: { slug: entry.slug }, 
     props: { entry },
@@ -15,7 +15,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Fetch ALL posts
-const allPosts = await getCollection("projects");
+const allPosts = await getCollection("projectstagged");
 
 // Filter posts based on tag (if applicable)
 const postsWithTag = entry.data.tags
@@ -38,8 +38,17 @@ const currentIndex = findCurrentPostIndex(currentSlug);
 // Get neighboring posts from the filtered and sorted array
 const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+
+
 ---
+
+
+
+
 <PostLayout frontmatter={entry.data}>
+  <div class="flex gap-2 mt-2"> 
+    {entry.data.icons?.map(icon => <Icon name={icon} />)}
+  </div>
 
   <Content />
 
