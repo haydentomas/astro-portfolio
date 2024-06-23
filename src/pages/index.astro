@@ -5,7 +5,12 @@ import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Button from '../components/Button.astro';
 import ButtonSlim from '../components/ButtonSlim.astro';
+import TestimonialTabs from '../components/TestimonialTabs.astro';
+
+
+import HR from '../components/HR.astro';
 const allPosts = await getCollection("posts");
+const allProjects = await getCollection("projects");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
 const title = 'Hayden Tomas - Website Developer';
@@ -32,13 +37,33 @@ posts.sort((a, b) => {
     const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
     return dateB.getTime() - dateA.getTime();
 });
-const latestPosts = posts.slice(0, 4) as unknown as PostItem[]; // Type assertion
+const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertion
+
+
+
+
+
+
+
+
+// Fetch the latest 3 posts (replace 'posts' with your actual collection name if different)
+const projects = await getCollection('projects', ({ data }) => data.draft !== true);
+posts.sort((a, b) => {
+    const dateA = a.data.pubDate ? new Date(a.data.pubDate) : new Date(0);
+    const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
+    return dateB.getTime() - dateA.getTime();
+});
+const latestProjects = posts.slice(0, 3) as unknown as PostItem[]; // Type assertion
+
+
+
+
 
 
 // Import the <Image /> component
 import { Image } from "astro:assets"
 // Import a reference to the image itself
-import whatIdoImage from "../assets/phone-mockup.png"
+import whatIdoImage from "../assets/sr-designer.png"
 
 
 import ServicesBlocks from '../components/ServicesBlocks.astro';
@@ -76,65 +101,63 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
 
   <ServicesBlocks />
 
-  <!-- Block start -->
-  <section>
-    <div class="py-8 mx-auto  lg:py-16 ">
-        <div class=" ">
-            <h2>Why should you chose me for your next website project?</h2>
-            
-            <p>My experience isn't that important, I do have 10+ years of it so I do know a thing or 2 about this new fangled web stuff!</p>
-            <p>But seriously, I am much more than just another website developer. I do not stop at the end of the project.</p>
-            <p>I have been working at a marketing agency in High Wycombe since 2011. My role is varied. I design, develop and maintain websites on a daily basis. I also play a role in making sure that the websites I build are found by the right people.</p>
-            <h2>I focus on Security, Accessibility and Scalability</h2>
-            <p>I build secure websites and tyake great care in ensuring that webistes are safe and secure. I build in WordPress mostly and I do not use page builders. I also build in Astro, this website has been created using a mix of Astro, Flowbite and other wizardry.</p>
-            <a href="#"
-                class="inline-flex items-center font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700">
-                Learn more
-                <svg class="ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- Block end -->
-
-
-     
-   
-
 
 
 
 <section class="w-full py-8 sm:py-12 md:py-16">
     <div class="mx-auto">
-        <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-200">
-            <h2 class="text-3xl font-bold dark:text-white">Latest Posts</h2>
+        <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-700 ">
+         <div class="title flex items-center justify-center">
+            <h2 class="text-3xl mb-0 font-bold dark:text-white ">Latest Projects</h2>
+         </div>
             <a href="/blog" class="flex items-center text-base font-semibold text-gray-900 dark:text-white group">
                 <span>View More Posts</span>
                 <svg class="w-4 h-4 mt-0.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
         </div>
-
         <div class="grid grid-cols-12 gap-6">
+            {latestProjects.map(({ data, slug }) => ( 
+<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
+<div class=" bg-white shadow-2xl dark:bg-gray-800 p-1 ">
+    <a href={`/projects/${slug}`} class="relative block w-full h-64 ">
+                  
+                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
+              </a>
+    <div class="p-5">
+        <a href={`/posts/${slug}`}>
+            <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
+        </a>
+        {data.pubDate && ( /* Conditionally display pubDate if it exists */
+                        <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
+                    )}
+        <p class="mb-3 font-light text-sm text-gray-700 dark:text-white">{data.description}</p>
+   <ButtonSlim href={`/posts/${slug}`}  aria={data.title}>Read more</ButtonSlim>
+    </div>
+</div>
+</div>       
+     ))}  
+        </div>
+    </div>
+</section>
+   
+
+<TestimonialTabs></TestimonialTabs>
 
 
-
-        
-          
-              
-              
-          
-
-
-
+<section class="w-full py-8 sm:py-12 md:py-16">
+    <div class="mx-auto">
+        <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-700 ">
+         <div class="title flex items-center justify-center">
+            <h2 class="text-3xl mb-0 font-bold dark:text-white ">Latest Posts</h2>
+         </div>
+            <a href="/blog" class="flex items-center text-base font-semibold text-gray-900 dark:text-white group">
+                <span>View More Posts</span>
+                <svg class="w-4 h-4 mt-0.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+        </div>
+        <div class="grid grid-cols-12 gap-6">
             {latestPosts.map(({ data, slug }) => ( 
-
-
-<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-3">
+<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
 <div class=" bg-white shadow-2xl dark:bg-gray-800 p-1 ">
     <a href={`/posts/${slug}`} class="relative block w-full h-64 ">
                   
@@ -152,39 +175,27 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
     </div>
 </div>
 </div>       
-        ))}  
+     ))}  
         </div>
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-   
+<section class="bg-white dark:bg-gray-900">
+    <div
+        class="gap-8 items-center py-8  mx-auto  xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
+        <img class="w-full dark:hidden"
+            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
+            alt="dashboard image">
+        <img class="w-full hidden dark:block"
+            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
+            alt="dashboard image">
+        <div class="mt-4 md:mt-0">
+            <h2 class="mb-4 text-4xl text-gray-900 dark:text-white">Have a question?</h2>
+            <p class="mb-6">If you have a question, wish to discuss your next project or hire me for a simple development task, then I am more than happy to help. Click the button below to get started. </p>
+                <Button href="/"  aria="Contact me">Contact me</Button>
+        </div>
+    </div>
+</section>   
 </MainLayout>
 
 
