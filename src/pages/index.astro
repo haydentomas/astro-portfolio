@@ -118,12 +118,12 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
         <div class="grid grid-cols-12 gap-6">
             {latestProjects.map(({ data, slug }) => ( 
 <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-12">
-<div class=" bg-white shadow-2xl dark:bg-gray-800 p-1 ">
-    <a href={`/project-tagged/${slug}`} class="relative block w-full h-64 ">
+<div class=" bg-white shadow-2xl  dark:bg-gray-800 p-1 grid grid-cols-12">
+    <a href={`/project-tagged/${slug}`} class="relative block w-full h-full col-span-6">
                   
                   <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
               </a>
-    <div class="p-5">
+    <div class="p-20 col-span-6">
         <a href={`/project-tagged/${slug}`}>
             <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
         </a>
