@@ -53,7 +53,7 @@ projects.sort((a, b) => {
     const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
     return dateB.getTime() - dateA.getTime();
 });
-const latestProjects = posts.slice(0, 2) as unknown as PostItem[]; // Type assertion
+const latestProjects = projects.slice(0, 2) as unknown as PostItem[]; // Type assertion
 
 
 
@@ -103,42 +103,40 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
 
 
 
-
-<section class="w-full py-8 sm:py-12 md:py-16">
-    <div class="mx-auto">
-        <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-700 ">
-         <div class="title flex items-center justify-center">
-            <h2 class="text-3xl mb-0 font-bold dark:text-white ">Projects</h2>
-         </div>
-            <a href="/blog" class="flex items-center text-base font-semibold text-gray-900 dark:text-white group">
-                <span>View More</span>
-                <svg class="w-4 h-4 mt-0.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
+    <section class="w-full py-8 sm:py-12 md:py-16">
+        <div class="mx-auto">
+            <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-700 ">
+                <div class="title flex items-center justify-center">
+                    <h2 class="text-3xl mb-0 font-bold dark:text-white ">Projects</h2>
+                </div>
+                <a href="/blog" class="flex items-center text-base font-semibold text-gray-900 dark:text-white group">
+                    <span>View More</span>
+                    <svg class="w-4 h-4 mt-0.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+            <div class="grid grid-cols-12 gap-6">
+                {latestProjects.map(({ data, slug }) => ( 
+                    <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-12">
+                        <div class=" bg-white shadow-2xl  dark:bg-gray-800 p-1 grid grid-cols-12">
+                            <a href={`/project-tagged/${slug}`} class="relative block w-full h-full col-span-6">
+                                <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
+                            </a>
+                            <div class="p-20 col-span-6">
+                                <a href={`/project-tagged/${slug}`}>
+                                    <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
+                                </a>
+                                {data.pubDate && ( /* Conditionally display pubDate if it exists */
+                                    <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
+                                )}
+                                <p class="mb-3 font-light text-sm text-gray-700 dark:text-white">{data.description}</p>
+                                <ButtonSlim href={`/project-tagged/${slug}`}  aria={data.title}>Read more</ButtonSlim>
+                            </div>
+                        </div>
+                    </div>       
+                ))}  
+            </div>
         </div>
-        <div class="grid grid-cols-12 gap-6">
-            {latestProjects.map(({ data, slug }) => ( 
-<div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-12">
-<div class=" bg-white shadow-2xl  dark:bg-gray-800 p-1 grid grid-cols-12">
-    <a href={`/project-tagged/${slug}`} class="relative block w-full h-full col-span-6">
-                  
-                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
-              </a>
-    <div class="p-20 col-span-6">
-        <a href={`/project-tagged/${slug}`}>
-            <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
-        </a>
-        {data.pubDate && ( /* Conditionally display pubDate if it exists */
-                        <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
-                    )}
-        <p class="mb-3 font-light text-sm text-gray-700 dark:text-white">{data.description}</p>
-   <ButtonSlim href={`/project-tagged/${slug}`}  aria={data.title}>Read more</ButtonSlim>
-    </div>
-</div>
-</div>       
-     ))}  
-        </div>
-    </div>
-</section>
+    </section>
    
 
 <TestimonialTabs></TestimonialTabs>
