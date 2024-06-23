@@ -4,6 +4,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Button from '../components/Button.astro';
+import ButtonSlim from '../components/ButtonSlim.astro';
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
@@ -134,13 +135,10 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
 
 
 <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-3">
-
-
-
-<div class=" bg-white  rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href={`/posts/${slug}`} class="relative block w-full h-64 overflow-hidden rounded">
+<div class=" bg-white shadow-2xl dark:bg-gray-800 p-1 ">
+    <a href={`/posts/${slug}`} class="relative block w-full h-64 ">
                   
-                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="rounded-t-xl shadow-lg object-cover object-center w-full h-full"/>
+                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
               </a>
     <div class="p-5">
         <a href={`/posts/${slug}`}>
@@ -149,45 +147,13 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
         {data.pubDate && ( /* Conditionally display pubDate if it exists */
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{data.description}</p>
-        <a href={`/posts/${slug}`} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+        <p class="mb-3 font-light text-sm text-gray-700 dark:text-white">{data.description}</p>
+   <ButtonSlim href={`/posts/${slug}`}  aria={data.title}>Read more</ButtonSlim>
     </div>
 </div>
-
-
-
-
-
-
-   
-               
-               
-                
-         
-
-
-
-
-</div>
-
-            
-        ))}
- 
-
-
-
-            
+</div>       
+        ))}  
         </div>
-
-
-       
-
-    
     </div>
 </section>
 
@@ -220,3 +186,8 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
 
    
 </MainLayout>
+
+
+
+
+

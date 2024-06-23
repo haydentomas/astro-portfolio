@@ -102,3 +102,30 @@ import mugshot from "../assets/hayden-tomas.jpg"
 
 
 
+<style>
+footer li{
+a, a:link, a:visited {
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(90deg, #16bdca, #0b8992);
+  background-size: 0 4px;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  transition: background-size .3s ease-in;
+  border-radius:10px;
+}
+
+a:hover::before {
+  background-size: 100% 4px;
+}
+}
+</style>

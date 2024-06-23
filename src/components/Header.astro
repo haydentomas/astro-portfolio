@@ -24,24 +24,33 @@ import Button from "./Button.astro";
    <nav class=" border-gray-200">
             <div class="flex flex-wrap justify-between items-center">
                 
-                <div class="items-center flex gap-5 max-w-60">
+                <div class="items-center flex gap-1 logoholder">
                     <figure style="aspect-ratio: 1 / 1;" class="w-14 h-14 sm:w-20 sm:h-20 ">
                   
 
 
 
                              
-            <a href="/">    <Image loading="eager" src={mugshot}
+            <a href="/">
+                <Image loading="eager" src={mugshot}
                 widths={[240, 540, 720, mugshot.width]}
                 sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${mugshot.width}px`}
-                alt="Hayden Tomas = Front end website developer" class="object-cover w-full h-full max-w-full border-2 border-teal-400 border-solid rounded-full"
-              /></a>
+                alt="Hayden Tomas = Front end website developer" class="object-cover  mr-5 h-full w-full border-2 border-teal-400 border-solid rounded-full"
+              />
+          
                     </figure>
                     <div class="flex-col flex max-w-full">
-                      <a href="/" class="text-white font-bold sm:text-3xl max-w-full">Hayden Tomas
-                      <div class="text-neutral-400 text-sm font-normal w-80 max-w-full">WordPress / Astro / JS </div></a>
-                    </div>
+                        <a href="/" class="text-white font-bold sm:text-3xl max-w-full">Hayden Tomas</a>
+                        <div class="text-neutral-400 text-sm w-80 max-w-full">WordPress / Astro / JS </div>
+                      </div>
                   </div>
+
+
+
+                  
+
+
+
                 <div class="flex lg:order-2">
                   
                     <Button href="/contact" aria="Start your project" href="/contact">Download CV</Button>
