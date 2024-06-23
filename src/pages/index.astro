@@ -47,7 +47,7 @@ const latestPosts = posts.slice(0, 3) as unknown as PostItem[]; // Type assertio
 
 
 // Fetch the latest 3 posts (replace 'posts' with your actual collection name if different)
-const projects = await getCollection('projects', ({ data }) => data.draft !== true);
+const projectstagged = await getCollection('projectstagged', ({ data }) => data.draft !== true);
 posts.sort((a, b) => {
     const dateA = a.data.pubDate ? new Date(a.data.pubDate) : new Date(0);
     const dateB = b.data.pubDate ? new Date(b.data.pubDate) : new Date(0);
@@ -99,7 +99,7 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
     
 
 
-  <ServicesBlocks />
+
 
 
 
@@ -111,12 +111,12 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
             <h2 class="text-3xl mb-0 font-bold dark:text-white ">Latest Projects</h2>
          </div>
             <a href="/blog" class="flex items-center text-base font-semibold text-gray-900 dark:text-white group">
-                <span>View More Posts</span>
+                <span>View More Projects</span>
                 <svg class="w-4 h-4 mt-0.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
         </div>
         <div class="grid grid-cols-12 gap-6">
-            {latestProjects.map(({ data, slug }) => ( 
+            {projectstagged.map(({ data, slug }) => ( 
 <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
 <div class=" bg-white shadow-2xl dark:bg-gray-800 p-1 ">
     <a href={`/projects/${slug}`} class="relative block w-full h-64 ">
@@ -131,7 +131,7 @@ import ServicesBlocks from '../components/ServicesBlocks.astro';
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
         <p class="mb-3 font-light text-sm text-gray-700 dark:text-white">{data.description}</p>
-   <ButtonSlim href={`/posts/${slug}`}  aria={data.title}>Read more</ButtonSlim>
+   <ButtonSlim href={`/project-tagged/${slug}`}  aria={data.title}>Read more</ButtonSlim>
     </div>
 </div>
 </div>       
