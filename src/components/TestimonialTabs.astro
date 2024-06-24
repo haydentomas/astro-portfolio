@@ -1,5 +1,7 @@
 ---
-
+import { Image } from "astro:assets"
+// Import a reference to the image itself
+import FullWax from "../assets/amadeo-full-wax.jpg"
 
 ---
 
@@ -9,6 +11,16 @@
         <div class="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
           <div class="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
             <img class="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="">
+         
+         
+         
+         
+         
+            <Image loading="eager" src={FullWax}
+                widths={[240, 540, 720, FullWax.width]}
+                sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${FullWax.width}px`}
+                alt="Hayden Tomas = Front end website developer" class="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
+              />
           </div>
         </div>
         <div class="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
@@ -21,7 +33,7 @@
               <p>Hayden is a highly creative individual and I would strongly recommend him to any company/individual who wants a web site which is up-to-the-minute and personalised. His ideas and concepts are a credit to him. He created a FANTASTIC new web site for my business. His after-care and customer service are second-to-none. Great to work with and extremely reliable.</p>
             </blockquote>
             <figcaption class="mt-8 text-base">
-              <div class="font-semibold text-white">Zoe Varzi</div>
+              <div class="font-semibold text-white">Amadeo Varzi</div>
               <div class="mt-1 text-gray-400">Full Wax Ltd</div>
             </figcaption>
           </figure>

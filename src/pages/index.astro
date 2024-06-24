@@ -23,6 +23,7 @@ const image = '/images/your-og-image.jpg'; // Relative path to your OG image
 type PostItem = {
     data: {
         title: string;
+        subTitle: string;
         description: string;
         image: any; // Use a generic type for the image property
         imageAlt: string;
@@ -121,19 +122,20 @@ import ActionButton from '../components/ActionButton.astro';
                 {latestProjects.map(({ data, slug }, index) => (
                   <div class="relative col-span-12   mb-10 space-y-4 md:col-span-6 lg:col-span-12">
                     <div class={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                      <a href={`/project/${slug}`} class="relative block w-full h-full md:w-4/12">
-                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="547" width="448" class=" " />
+                      <a href={`/project/${slug}`} class="relative block w-full h-full md:w-6/12">
+                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651"  height="795" class=" " />
                       </a>
                       <div 
                         class={`
-                          ${index % 2 === 0 ? 'p-20 md:pr-0' : 'p-20 md:pl-0'} md:w-8/12
+                          ${index % 2 === 0 ? 'p-20 md:pr-0' : 'p-20 md:pl-0'} md:w-6/12
                         `}
                       >
                     
                         <a href={`/project/${slug}`}>
-                          <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
+                          <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
                         </a>
-                        
+
+                        <h2 class="mb-4 text-3xl tracking-tight text-gray-900 dark:text-white">{data.subTitle}</h2>
                         <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
                         <div class="flex gap-2 mb-5 icons">
                           {data.icons?.map(icon => <Icon name={icon}/>)}

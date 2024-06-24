@@ -21,6 +21,7 @@ const postsCollection = defineCollection({
  const projectsCollection = defineCollection({
   schema: ({ image }) => z.object({
       title: z.string(),
+    
       pubDate: z.date(),
       description: z.string(),
       author: z.optional(z.string()),
@@ -40,6 +41,7 @@ const postsCollection = defineCollection({
  const projectsTaggedCollection = defineCollection({
   schema: ({ image }) => z.object({
       title: z.string(),
+      subTitle: z.string(),
       pubDate: z.date(),
       description: z.string(),
       author: z.optional(z.string()),
