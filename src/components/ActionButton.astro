@@ -1,0 +1,23 @@
+---
+const { href } = Astro.props;
+const { aria } = Astro.props;
+const { target } = Astro.props;
+---
+
+<a aria-label={aria} href={href} target={target}>
+<button class="btn btn--action hidden md:inline-flex">
+    <slot />
+</button></a>
+
+  <style>
+
+.btn--action {
+    background: linear-gradient(#5d2e8c, #5d2e8c) padding-box, linear-gradient(45deg, #769989, #769989) border-box !important;
+    border: 2px solid transparent !important;
+    border-radius: 10px !important;
+    transition: border-width 0.6s linear;
+    color:#fff;
+    padding:10px;
+    text-transform:uppercase;
+}
+  </style>
