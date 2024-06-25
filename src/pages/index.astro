@@ -120,14 +120,14 @@ import ActionButton from '../components/ActionButton.astro';
             </div>
             <div class="grid grid-cols-12 gap-6">
                 {latestProjects.map(({ data, slug }, index) => (
-                  <div class="relative col-span-12   mb-10 space-y-4 md:col-span-6 lg:col-span-12">
-                    <div class={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                      <a href={`/project/${slug}`} class="relative block w-full h-full md:w-6/12">
-                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651"  height="795" class=" " />
+                  <div class="relative col-span-12 mb-10 space-y-4  lg:col-span-12">
+                    <div class={`flex flex-col md:flex-row items-center bg-red-500 ${index % 2 === 0 ? 'lg:flex-row' : 'md:flex-row-reverse'}`}>
+                      <a href={`/project/${slug}`} class="relative bg-green-500 block w-full h-full md:w-6/12">
+                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651"  height="795" class="mb-10" />
                       </a>
                       <div 
                         class={`
-                          ${index % 2 === 0 ? 'p-20 md:pr-0' : 'p-20 md:pl-0'} md:w-6/12
+                          ${index % 2 === 0 ? 'lg:p-20 bg-blue-500 lg:pr-0 md:pr-0' : ' bg-pink-500 lg:pl-0 lg:pr-20'} lg:w-6/12
                         `}
                       >
                     
@@ -135,7 +135,7 @@ import ActionButton from '../components/ActionButton.astro';
                           <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
                         </a>
 
-                        <h2 class="mb-4 text-3xl tracking-tight text-gray-900 dark:text-white">{data.subTitle}</h2>
+                     
                         <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
                         <div class="flex gap-2 mb-5 icons">
                           {data.icons?.map(icon => <Icon name={icon}/>)}
