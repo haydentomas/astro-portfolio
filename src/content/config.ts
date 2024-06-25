@@ -41,7 +41,8 @@ const postsCollection = defineCollection({
  const projectsTaggedCollection = defineCollection({
   schema: ({ image }) => z.object({
       title: z.string(),
-      subTitle: z.string(),
+      subTitle: z.string().optional(),
+      homeText1: z.string().optional(),
       pubDate: z.date(),
       description: z.string(),
       author: z.optional(z.string()),
