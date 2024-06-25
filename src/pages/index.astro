@@ -120,26 +120,19 @@ import ActionButton from '../components/ActionButton.astro';
             </div>
             <div class="grid grid-cols-12 gap-6">
                 {latestProjects.map(({ data, slug }, index) => (
-                  <div class="relative col-span-12 mb-10 space-y-4  md:col-span-12">
-                    <div class={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row' : 'md:flex-row-reverse'}`}>
-                      <a href={`/project/${slug}`} class="relative block w-full h-full ">
-                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651"  height="795" class="mb-10" />
+                  <div class="relative col-span-12 mb-10 space-y-4">
+                    <div class="flex flex-col md:flex-row items-center">
+                      <a href={`/project/${slug}`} class="relative block w-full h-full md:w-1/2">
+                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651" height="795" class="mb-10" />
                       </a>
-                      <div 
-                        class={`
-                          ${index % 2 === 0 ? 'lg:p-20 lg:pr-0 md:pr-0' : ' lg:pl-0 lg:pr-20'} lg:w-6/12
-                        `}
-                      >
-                    
+                      <div class="flex flex-col justify-between p-4 md:w-1/2 lg:pr-8">
                         <a href={`/project/${slug}`}>
                           <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
                         </a>
-
-                     
                         <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
                         <div class="flex gap-2 mb-5 icons">
-                          {data.icons?.map(icon => <Icon name={icon}/>)}
-                        </div> 
+                          {data.icons?.map(icon => <Icon name={icon} />)}
+                        </div>
                         <ButtonSlim href={`/project/${slug}`} aria={data.title}>Read more</ButtonSlim>
                       </div>
                     </div>
