@@ -1,30 +1,58 @@
-
-
 h1 {
-    @apply max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white
+  @apply max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white;
 }
 h2 {
-    @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white
+  @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white;
 }
 
 p {
-    @apply text-2xl mb-4 font-light dark:text-white
+  @apply text-2xl mb-4 font-light dark:text-white;
 }
 
 footer {
-    h2 {
-        @apply mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white;
-    }
-    ul {
-        @apply text-gray-500 dark:text-gray-400;
-    }
-    li {
-        @apply mb-4;
+  h2 {
+    @apply mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white;
+  }
+  ul {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+  li {
+    @apply mb-4;
     a {
-        @apply hover:underline
+      @apply hover:underline;
     }
-    }
+  }}
+/* mobile first */
+body {
+  background: red;
 }
-
-
-
+/* sm */
+@media only screen and (min-width: 640px) {
+  body {
+    background: yellow;
+  }
+}
+/* md */
+@media only screen and (min-width: 768px) {
+  body {
+    background: pink;
+  }
+}
+/* lg */
+@media only screen and (min-width: 1024px) {
+  body {
+    background: green;
+  }
+}
+/* xl */
+@media only screen and (min-width: 1280px) {
+  body {
+    background: purple;
+  }
+}
+/* 2xl */
+@media only screen and (min-width: 1536px) {
+  body {
+    background: orange;
+  }
+}
