@@ -1,3 +1,36 @@
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/fonts/merriweather/merriweather-latin-400-normal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/fonts/merriweather/merriweather-latin-300-normal.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url('/fonts/cabin/cabin-latin-400-normal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,h2 {
+  font-family: 'Cabin', sans-serif;
+  font-weight:normal;
+  font-size: 2rem;
+}
+p {
+  font-family: 'Merriweather', serif;
+  font-weight:normal;
+}
+
+
 h1 {
   @apply max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white;
 }
@@ -6,7 +39,7 @@ h2 {
 }
 
 p {
-  @apply text-2xl mb-4 font-light dark:text-white;
+  @apply text-xl mb-4 font-light dark:text-white;
 }
 
 footer {
