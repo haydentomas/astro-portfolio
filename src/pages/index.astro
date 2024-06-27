@@ -30,6 +30,7 @@ type PostItem = {
         imageAlt: string;
         pubDate?: string; // Make pubDate optional
         icons?: string[]; // Add the icons property here
+        whatwedid?: string[]; // Add the icons property here
     };
     slug: string;
 };
@@ -80,8 +81,8 @@ import HomeProject from '../components/HomeProject.astro';
 
 
 
-  <section class="">
-    <div class="grid py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+ 
+    <section class="hero grid py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
       <div class="mr-auto place-self-center lg:col-span-7">
         <p class="font-semibold">Hi, I'm Hayden</p>
         <h1>I design and develop secure, accessible and scalable websites</h1>
@@ -109,13 +110,11 @@ import HomeProject from '../components/HomeProject.astro';
           class=""
         />
       </div>
-    </div>
-  </section>
+    </section>
+ 
 
     
 
-<h2>New Home Projects</h2>
-<HomeProject href="/project/your-project" aria="View project" target="_blank">here i am</HomeProject>
 
 
 
@@ -135,7 +134,11 @@ import HomeProject from '../components/HomeProject.astro';
                       <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
                     </a>
                     <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
- 
+                    <ul class="list-disc pl-4 mt-2 text-m "> 
+          {data.whatwedid?.map((item) => (
+            <li class="text-gray-700 dark:text-white">{item}</li>
+          ))}
+        </ul>
                     <div class="flex gap-2 mb-5 icons">
                       {data.icons?.map(icon => <Icon name={icon} />)}
                     </div>
@@ -150,6 +153,11 @@ import HomeProject from '../components/HomeProject.astro';
                       <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
                     </a>
                     <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
+                    <ul class="list-disc pl-4 mt-2 text-m"> 
+          {data.whatwedid?.map((item) => (
+            <li class="text-gray-700 dark:text-white">{item}</li>
+          ))}
+        </ul>
                     <div class="flex gap-2 mb-5 icons">
                       {data.icons?.map(icon => <Icon name={icon} />)}
                     </div>
