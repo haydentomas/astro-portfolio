@@ -1,3 +1,4 @@
+/* Local Fonts */
 @font-face {
   font-family: 'Merriweather';
   src: url('/fonts/merriweather/merriweather-latin-400-normal.woff') format('woff');
@@ -27,18 +28,21 @@
   font-style: normal;
   font-display: swap;
 }
+/* End Local Fonts */
 
-
-h1,h2,h3 {
+/* Headings */
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Cabin', sans-serif;
   font-weight:700;
-
 }
-p,li {
+/*Body fonts */
+body {
   font-family: 'Merriweather', serif;
   font-weight:normal;
 }
-
+p,li {
+  @apply text-lg mb-4 font-light dark:text-white;
+}
 
 h1 {
   @apply max-w-2xl mb-4 text-4xl font-bold md:text-5xl xl:text-6xl dark:text-white;
@@ -47,8 +51,14 @@ h2 {
   @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white;
 }
 
-p,li {
-  @apply text-xl mb-4 font-light dark:text-white;
+
+main li {
+  @apply pl-2 mb-2;
+}
+main li::marker {
+
+  content: "◉ ";
+  @apply mr-10 text-teal-400;
 }
 
 footer {
