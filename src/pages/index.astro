@@ -8,6 +8,7 @@ import ButtonSlim from '../components/ButtonSlim.astro';
 import TestimonialTabs from '../components/TestimonialTabs.astro';
 
 
+
 import Icon from '../components/Icon.astro';
 import HR from '../components/HR.astro';
 const allPosts = await getCollection("posts");
@@ -72,8 +73,11 @@ import whatIdoImage from "../assets/heronew.png"
 
 import ServicesBlocks from '../components/ServicesBlocks.astro';
 import ActionButton from '../components/ActionButton.astro';
+import HomeProject from '../components/HomeProject.astro';
 ---
 <MainLayout title={title} description={description} image={image}>
+
+
 
 
   <section class="">
@@ -95,7 +99,7 @@ import ActionButton from '../components/ActionButton.astro';
         </span>
         <Button href="/contact" aria="Start your project" href="/contact">Contact Hayden</Button>
       </div>
-      <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+      <div class="hidden lg:mt-0 lg:col-span-5 lg:grid">
         <Image
           loading="eager"
           src={whatIdoImage}
@@ -110,7 +114,8 @@ import ActionButton from '../components/ActionButton.astro';
 
     
 
-
+<h2>New Home Projects</h2>
+<HomeProject href="/project/your-project" aria="View project" target="_blank">here i am</HomeProject>
 
 
 
@@ -130,6 +135,7 @@ import ActionButton from '../components/ActionButton.astro';
                       <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
                     </a>
                     <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
+ 
                     <div class="flex gap-2 mb-5 icons">
                       {data.icons?.map(icon => <Icon name={icon} />)}
                     </div>
