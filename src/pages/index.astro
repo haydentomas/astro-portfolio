@@ -190,10 +190,10 @@ import HomeProject from '../components/HomeProject.astro';
         <div class="grid grid-cols-12 gap-6">
             {latestPosts.map(({ data, slug }) => ( 
 <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
-<div class=" bg-white shadow-2xl dark:bg-gray-800 p-1 ">
+<div class=" bg-white   rounded-2xl shadow-2xl dark:bg-gray-800 p-1 ">
     <a href={`/posts/${slug}`} class="relative block w-full h-64 ">
                   
-                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" shadow-lg object-cover object-center w-full h-full"/>
+                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
               </a>
     <div class="p-5">
         <a href={`/posts/${slug}`}>

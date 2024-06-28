@@ -15,6 +15,8 @@ const { target } = Astro.props;
 @apply dark:text-white uppercase;
   transition: color 0.25s 0.0833333333s;
   position: relative;
+  border-radius:10px;
+  overflow: hidden;
 }
 .draw-border::before, .draw-border::after {
   border: 0 solid transparent;
@@ -26,6 +28,9 @@ const { target } = Astro.props;
   height: 0;
   bottom: 0;
   right: 0;
+  border-radius: inherit;
+  clip-path: inset(0 0 0 2px) circle(50% at 50%);
+  transition: clip-path 0.65s, border-color 0.3s ease-in-out;
 }
 .draw-border::before {
   border-bottom-width: 2px;
@@ -44,6 +49,7 @@ const { target } = Astro.props;
   transition: border-color 0s, width 0.65s, height 0.65s;
   width: 100%;
   height: 100%;
+  clip-path: inset(0); /* Remove clip on hover to reveal full border */
 }
 .draw-border:hover::before {
   transition-delay: 0s, 0s, 0.65s;
