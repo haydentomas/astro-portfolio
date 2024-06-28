@@ -4,12 +4,12 @@ const { aria } = Astro.props;
 const { target } = Astro.props;
 ---
 
-<a class="button" aria-label={aria} href={href} target={target}>
+<a aria-label={aria} href={href} target={target}>
 <button class="btn draw-border hidden md:inline-flex">
     <slot />
 </button></a>
 
-  <!-- <style>
+  <style>
    .draw-border {
   box-shadow: inset 0 0 0 2px #969696;
 @apply dark:text-white uppercase;
@@ -71,58 +71,4 @@ const { target } = Astro.props;
   outline: 1px dotted #1e1f1f;
 }
 
-  </style> -->
-
-
-  <style>
-    a.button {
-  position: relative;
-padding:5px 20px;
-  display:inline-block;
-
-
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  transition: 0.5s;
-  border: 1px solid #fff;
-  
-  
-  button {
-  background:transparent;
-  border:none;
-  color:#fff;
-}
-  
-  &:hover {
-     border: 1px solid transparent;
-background: var(--color-purple) url(/images/pixel2.png);
-  transition-delay: 0.8s;
-  background-size: 180px;
-  -webkit-animation: animate var(--speed-fast) steps(8) forwards;
-          animation: animate var(--speed-fast) steps(8) forwards;
-  }
-
-}
-
-
-@-webkit-keyframes animate {
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: -480px;
-  }
-}
-
-@keyframes animate {
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: -480px;
-  }
-}
   </style>
