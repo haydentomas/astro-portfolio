@@ -40,6 +40,11 @@ body {
   font-family: 'Merriweather', serif;
   font-weight:normal;
 }
+
+strong {
+  font-weight: bold;
+}
+
 p,li {
   @apply text-lg mb-4 font-light dark:text-white;
 }
