@@ -18,33 +18,23 @@ import whatIdoImage from "../assets/heronew.png"
 
 <MainLayout title={title} description={description}>
   <section class="hero grid py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-    <div class="mr-auto place-self-center lg:col-span-7">
-      <p><strong>My name is Hayden Tomas</strong></p>
-      <h1>I am a front-end website developer based in Buckinghamshire, UK</h1>
-      <p class="max-w-2xl">
-        I am passionate about building websites that are accessible to people of all abilities. My passion is creating websites that loading extremely quickly, are loved by Google and are visible to all.
-      </p>
-      <h3 class="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-2xl dark:text-white">
-        Do you have a project in mind?
-      </h3>
-      <span class="inline-flex items-center justify-center pr-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 dark:text-white">
-        Get started
-        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-        </svg>
-      </span>
-      <Button href="/contact" aria="Start your project" href="/contact">Contact Hayden</Button>
+    <div class="mr-auto place-self-centerf lg:col-span-12">
+      
+      <h1>About Hayden Tomas</h1>
+      <p>My name is Hayden Tomas, I am a front-end website developer based in Prestwood, Great Missenden.</p>
+      <p>I have been developing websites and apps professionally since 2011. I started building websites for fun much sooner than that. Those of you old enough to remember software such as Microsoft Frontpage or the very first version of Serif Web Plus will understand the fun and games we had back then!</p>
+      <p>I remember writing my very first program in basic, it was copied from the book that came with my beloved <a target="_blank" href="https://en.wikipedia.org/wiki/Commodore_Plus/4">Commodore Plus/4</a>. I was very new to programming at 9 years old so certainly wasnt goiong to design my own software.</p>
+      <p>So anyway, fast forward to 2011, I got my first website development job, and I am still with that agency to this day.</p>
+      <h2>What I do</h2>
+      <p>My work keeps me busy developing websites in WordPress and DNN most of the time. I am very interested in learnign more about Jamstack, which is why I chose Astro to build this very website.</p>
+      <p>There is nothing you can't build with Astro. Static sites now can compete with dynamic websites built in CMS systems such as WordPress, you can even create E-commerce solutions with static site generators.</p>
+      <h2>My Skills</h2>
+      <p>Now I do need to be honest about my skills. JavaScript is not my strong point, however I am learning!</p>
+        
+        <p>Part of the reason why I wanted to build my personal site in AstroJS is because it would force me to learn JavaScript.</p>
+
     </div>
-    <div class="hidden lg:mt-0 lg:col-span-5 lg:grid">
-      <Image
-        loading="eager"
-        src={whatIdoImage}
-        widths={[240, 540, 720, 1024, whatIdoImage.width]}
-        sizes={`(max-width: 360px) 24vw, (max-width: 720px) 48vw, (max-width: 1600px) 64vw, 100vw`} 
-        alt="Hayden Tomas = Front end website developer"
-        class=""
-      />
-    </div>
+   
   </section>
 
 
@@ -59,29 +49,11 @@ import whatIdoImage from "../assets/heronew.png"
 
 
 
-    <h1>About Hayden Tomas</h1>
    
-    <p>My name is Hayden Tomas, I am a front-end website developer based in Prestwood, Great Missenden.</p>
-    <p>I have been developing websites and apps professionally since 2011. I started building websites for fun much sooner than that. Those of you old enough to remember software such as Microsoft Frontpage or the very first version of Serif Web Plus will understand the fun and games we had back then!</p>
-    <p>I remember writing my very first program in basic, it was copied from the book that came with my beloved <a target="_blank" href="https://en.wikipedia.org/wiki/Commodore_Plus/4">Commodore Plus/4</a>. I was very new tro programming at 9 years old so certainly wasnt goiong to design my own software.</p>
-    <p>So anyway, fast forward to 2011, I got my first website development job, and I am still with that agency to this day.</p>
    
-    <div class="grid lg:grid-cols-2 lg:gap-28 pb-10">
-     <div class="column"> <h2>What I do</h2>
-       <p>My work keeps me busy developing websites in WordPress and DNN most of the time. I am very interested in learnign more about Jamstack, which is why I chose Astro to build this very website.</p>
-       <p>There is nothing you can't build with Astro. Static sites now can compete with dynamic websites built in CMS systems such as WordPress, you can even create E-commerce solutions with static site generators.</p>
-       <h2>My Skills</h2>
-       <p>Now I do need to be honest about my skills. JavaScript is not my strong point, however I am learning!</p>
-         
-         <p>Part of the reason why I wanted to build my personal site in AstroJS is because it would force me to learn JavaScript.</p>
-      </div>
-     <div class="column">          <Image loading="eager" src={topImage}
-       widths={[240, 540, 720, topImage.width]}
-       sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${topImage.width}px`}
-       alt="Hayden Tomas = Front end website developer"
-     /></div>
- 
-    </div>
+    
+   
+   
     <hr class=" pt-10"/>
     <p>I have spent most of my time creating skins, themes and building sites from scratch. I am the guy you come to when you need a site take from a PSD file or from Figma and turned into a working theme. I am not the guy you come to when you need a piece of functionality built from scratch with a language like JavaScript or Python. Not yet anyway!</p>
     <h2>So not any particular order, this is my toolset:</h2>
