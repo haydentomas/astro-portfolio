@@ -56,7 +56,9 @@ h2 {
   @apply mb-6 font-bold text-4xl text-gray-900 dark:text-white;
 }
 
-
+main ul {
+@apply pl-8;
+}
 main li {
   @apply pl-2 mb-2;
 }
