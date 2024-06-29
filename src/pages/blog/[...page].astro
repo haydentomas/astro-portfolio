@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import MainLayout from '../../layouts/MainLayout.astro';
+import Button from '../../components/Button.astro';
 
 // Define a basic structure for the pagination result
 type PaginationResult = {
@@ -72,23 +73,45 @@ const Name = 'Hayden Tomas - Website Developer';
 ---
 <MainLayout title={title} description={description}>
     <main>
-
-        <div class="">
+        <section class="hero grid py-8 mx-auto lg:gap-20 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto lg:col-span-12">
+          
+              <div class="">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                  <div class="mx-auto max-w-2xl text-center">
+                    <h1>From the blog</h1>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">Web Development / Marketing / Agency Life</p>
+                  </div>
+          
+                </div>
+              </div>
+            <div class="grid lg:grid-cols-3 gap-10">
             {page.data.map(({ data, slug }) => (
+                 
+                           
+                        
                 <a href={`/posts/${slug}`} class="">
-                    <div class="">
-                        <h3 class="">{data.title}</h3>
-                   {data.pubDate && ( /* Conditionally display pubDate if it exists */
-                            <p class="">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
-                        )}
-                        <p>{data.description}</p>
-                        <div class="">
-                            <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=""/>
-                        </div>
+                    <div class="bg-white   rounded-2xl shadow-2xl dark:bg-gray-800 p-1">
+                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
+                     <div class="p-5">
+                        <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
+                        {data.pubDate && ( /* Conditionally display pubDate if it exists */
+                        <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
+                    )}
+                         <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
+                        
+                     </div>
+                       
                     </div>
                 </a>
             ))}
         </div>
+               
+        
+            </div>
+        
+          </section>
+       
     
         <div class="text-center">
             <p>Page {page.currentPage} of {page.lastPage}</p>
