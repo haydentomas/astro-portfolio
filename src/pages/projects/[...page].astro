@@ -68,7 +68,15 @@ const Name = 'Hayden Tomas - Website Developer';
 ---
 <MainLayout title={title} description={description}>
     <main>
-
+    <section class="py-8 lg:py-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center">
+              <h1>My recent projects</h1>
+              <p class="mt-2 text-lg leading-8 text-gray-600">WordPress / Astro / Agency Life</p>
+            </div>
+    
+          </div>
+    </section>
         <div class="">
             {page.data.map(({ data, slug }) => (
                 <a href={`/project/${slug}`} class="">
