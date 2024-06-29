@@ -87,23 +87,24 @@ const Name = 'Hayden Tomas - Website Developer';
               </div>
             <div class="grid lg:grid-cols-3 gap-10">
             {page.data.map(({ data, slug }) => (
-                 
-                           
-                        
-                <a href={`/posts/${slug}`} class="">
-                    <div class="bg-white   rounded-2xl shadow-2xl dark:bg-gray-800 p-1">
-                        <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class="rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
-                     <div class="p-5">
-                        <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
-                        {data.pubDate && ( /* Conditionally display pubDate if it exists */
+         <div class="relative mb-10 space-y-4 ">
+<div class=" bg-white   rounded-2xl shadow-2xl dark:bg-gray-800 p-1 ">
+    <a href={`/posts/${slug}`} class="relative block w-full h-64 ">
+                  
+                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
+              </a>
+    <div class="p-5">
+        <a href={`/posts/${slug}`}>
+            <h5 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
+        </a>
+        {data.pubDate && ( /* Conditionally display pubDate if it exists */
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
-                         <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
-                        
-                     </div>
-                       
-                    </div>
-                </a>
+        <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
+   <Button href={`/posts/${slug}`}  aria={data.title}>Read more</Button>
+    </div>
+</div>
+</div>
             ))}
         </div>
                
