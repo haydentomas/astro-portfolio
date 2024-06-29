@@ -50,6 +50,9 @@ const postsCollection = defineCollection({
       image: image().refine((img) => img.width >= 600, {
         message: "Cover image must be at least 600 pixels wide!",
       }),
+      imageprojects: image().refine((img) => img.width >= 600, {
+        message: "Cover image must be at least 600 pixels wide!",
+      }),
       imageAlt: z.string(),
       tags: z.array(z.string()),
       projectURL: z.string(),

@@ -56,7 +56,7 @@ type PostItem = {
   data: {
     title: string;
     description: string;
-    image: string;
+    imageprojects: string;
     imageAlt: string;
     icons: IconName[]; // Add the icons property
   };
@@ -76,17 +76,25 @@ const Name = 'Hayden Tomas - Website Developer';
             </div>
     
           </div>
-    </section>
-        <div class="">
+
+
+
+
+          <div class="grid grid-cols-3 gap-10">
             {page.data.map(({ data, slug }) => (
                 <a href={`/project/${slug}`} class="">
                     <div class="">
-                        <h3 class="">{data.title}</h3>
-                        <p>{data.description}</p>
-                        {data.icons?.map(icon => <Icon name={icon} />)}
-                        <div class="">
-                            <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=""/>
+                         <div class="">
+                            <Picture formats={['avif', 'webp']} src={data.imageprojects} alt={data.imageAlt} height="814" width="1082" class="rounded-xl"/>
                         </div>
+                        <div class="icons flex gap-2 mt-2 mb-2">
+                       {data.icons?.map(icon => <Icon name={icon} />)}
+                       </div>
+                        <h3 class="mb-2 mt-2 text-2xl tracking-tight text-gray-900 dark:text-white">{data.title} </h3>
+                      
+                        <p>{data.description}</p>
+                       
+                       
                     </div>
                 </a>
             ))}
@@ -100,6 +108,20 @@ const Name = 'Hayden Tomas - Website Developer';
                 {next && <a href={next} class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Next Page</a>}
             </div>
         </div>
+    </section>
+ 
     </main>
     
 </MainLayout>
+
+
+<style>
+.icons {
+@apply bg-slate-800 pl-2 pt-1 pb-1 rounded-lg;
+
+p {
+    margin:0;
+    @apply text-gray-200 text-sm
+}
+}
+</style>
