@@ -71,6 +71,16 @@ main ul li::marker {
   @apply mr-10 text-teal-400;
 }
 
+
+main ol li::marker {
+
+  @apply mr-10 dark:text-white !important;
+}
+
+main code {
+  @apply bg-gray-100 text-white dark:bg-gray-800 dark:text-white p-1 rounded;
+}
+
 footer {
   h2 {
     @apply mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white;
