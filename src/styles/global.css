@@ -59,10 +59,13 @@ h2 {
 main ul {
 @apply pl-8;
 }
-main li {
+main ul li {
   @apply pl-2 mb-2;
 }
-main li::marker {
+main ol li {
+  @apply pl-2 mb-2;
+}
+main ul li::marker {
 
   content: "◉ ";
   @apply mr-10 text-teal-400;

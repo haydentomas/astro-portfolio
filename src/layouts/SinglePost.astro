@@ -9,6 +9,7 @@ import { Picture } from "astro:assets"; // Import Astro's built-in image compone
 const { frontmatter, current } = Astro.props;
 
 const rootUrl = new URL(Astro.url).origin
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 
@@ -25,13 +26,22 @@ const rootUrl = new URL(Astro.url).origin
 <meta property="twitter:title" content={frontmatter.title} />
 <meta property="twitter:description" content={frontmatter.description} />
 <meta property="twitter:image" content={rootUrl + frontmatter.image.src} />
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/cabin/cabin-latin-400-normal.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/merriweather/merriweather-latin-400-normal.woff" as="font" type="font/woff" crossorigin />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+
 </head>
 <body>
   <div class="layout dark:bg-gray-900">
 
     <Header current={current} />
 
-    <main>
+    <main class="prose min-w-full dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-li:text-white dark:marker:text-white dark:prose-td:text-white">
  
     
    <div class="container">
