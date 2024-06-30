@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import PostLayout from '../../layouts/SinglePost.astro';
+import PostLayout from '../../layouts/SingleProject.astro';
 import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
@@ -46,8 +46,10 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
 
 <PostLayout frontmatter={entry.data}>
-  <div class="flex gap-2 mt-2"> 
-    {entry.data.icons?.map(icon => <Icon name={icon} />)}
+
+
+  <div class="iconblock flex gap-2 mt-2 bg-slate-800 p-0 rounded-lg pl-5 pt-0 mb-10"> 
+   {entry.data.icons?.map(icon => <Icon name={icon} />)}
   </div>
 
   <Content />
@@ -66,3 +68,16 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 </div>
 
 </PostLayout>
+
+<style>
+  .iconblock{
+  
+
+
+    img {
+      width: 30px;
+      height: 30px;
+
+    }
+  }
+</style>

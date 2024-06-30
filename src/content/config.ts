@@ -61,6 +61,7 @@ const postsCollection = defineCollection({
       icons: z.array(z.enum(["javascript", "react", "html", /* Add more as needed */])),
       // Add a 'draft' property, which is a boolean false or true no ``
       draft: z.optional(z.boolean()),
+      Section1Content: z.string().optional(),
     })
  });
 

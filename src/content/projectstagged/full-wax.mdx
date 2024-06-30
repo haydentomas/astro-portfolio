@@ -4,7 +4,7 @@ subTitle: 'Aircraft Detailing Company needed a new lead generating website.'
 description: 'Long standing client, Full Wax, has been a client of ours for over 10 years. We have helped them with their branding, website, and marketing materials.'
 image: "/src/images/full-wax.png"
 imageprojects: "/src/images/full-wax-square.jpg"
-imageAlt: "make a blog."
+imageAlt: "Full Wax Website."
 pubDate: 2024-10-31
 tags: ["astro", "learning", "coding", "blog"]
 projectURL: "https://astro.build/"
@@ -17,51 +17,33 @@ icons:
 
 whatwedid:
  - Custom WordPress Development
- - Migration from Webflow to Oxygen
- - Animation Development 
+ - Security and Performance Optimisation
  - Hosting and Maintenance
+ - SEO Optimisation
+ - Branding and Marketing Materials
+ - Website Design
+ - Content Creation
+
+Section1Content: "Full Wax is an aircraft detailing company based in the UK. The company required a simple brochure website for their business, nothing too fancy. The purpose of the website is to really have a face for the business online. Leads are mostly generated through word of mouth."
+
+
 ---
 
 
-# Project Full wax
-In this post, we'll dive deeper into Astro.js and demonstrate how to build a simple blog using this powerful framework.
+## The Full Wax Project
 
-## Creating Blog Posts
+We have been working with The Full Wax for many years. The website we had originally taken over was a flash website. It was difficult to manage with very little SEO due to the flash components.
 
-Start by creating a new Astro component for your blog post. Here's an example of what the component might look like:
+At this time flash was still a thing but I already knew that it was on its way out. We developed the site in DNN, then later moved to WordPress. I would very much like to move the client over to a static Astro site because there are so few updates to the site and it doesnt need any special modules to make it work.
 
-```
-import { markdown } from '@astro/types';
+## SEO Optimisation
 
-const markdownFile = await markdown('./blog/my-first-post.md');
+We have worked with the client to optimise their site for SEO. We have added meta tags, alt tags, and other SEO best practices to help the site rank better in search engines. This is done through the use of a simple SEO plugin and some research into the best keywords for the site. This enabled us to reach some of the top spots in Google for their chosen keywords.
 
-export function post() {
-  return (
-    <article>
-      <h1>{markdownFile.meta.title}</h1>
-      <div>{markdownFile.content}</div>
-    </article>
-  );
-}
-```
+## Security and Performance Optimisation
 
-## Routing
+I have maintained the website since launch by enusing it is secure, up to date and running as fast as possible. I have also added a CDN to the site to help with the speed of the site. This has helped to improve the user experience and has helped to increase the number of leads generated through the site.
 
-With Astro.js, routing is incredibly easy. You can define routes in your project's `astro.config.js` file:
+Security is managed through the use of the Patchstack security plugin. This plugin is a great tool for keeping the site secure and up to date. It scans the site for vulnerabilities and helps to keep the site secure. If vunerabilities are found I tend to them as required. To add to this I maintain regular backups and do regular checks to make sure that the site is always running optimally.
 
-```
-export default {
-  // ...
-  routes: [
-    {
-      path: '/blog/*',
-      component: './src/components/BlogPost.astro',
-    },
-    // Other routes...
-  ],
-};
-```
-
-Now, you can access your blog posts at URLs like `/blog/my-first-post`.
-
-Stay tuned for more advanced blog customization with Astro.js!
+The security of this site is very important as it is a brochure site and the client relies on it to generate leads for their business. If the site were to go down it would have a big impact on their business. I notice at least 10 attempts to hack the site every day. I don't mention this to the client, it's just one the things I do as part of maintenance which I consider a worthwhile investment for any WordPress website.
