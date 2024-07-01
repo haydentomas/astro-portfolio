@@ -2,10 +2,10 @@
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import PrimaryMeta from "../components/PrimaryMeta.astro"
-import { getFormattedImageURL } from "../utils/image";
+// Removed unused import: import { getFormattedImageURL } from "../utils/image";
 import '../styles/global.css';
 
-import { Picture } from "astro:assets"; // Import Astro's built-in image component
+import { Picture } from "astro:assets"; 
 const { frontmatter, current } = Astro.props;
 
 const rootUrl = new URL(Astro.url).origin
@@ -44,14 +44,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <main class="prose min-w-full dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-li:text-white marker:text-teal-500 dark:prose-td:text-white">
  
     
-   <div class="container">
-    {
-      frontmatter.image && ( // conditionally renders image if an image exists
-        <img class="rounded-xl max-w-5xl text-center" src={frontmatter.image.src} alt={frontmatter.image.alt} />
-      )
-    }
-    <slot />
-   </div>
+      <div class="container">
+        {
+          frontmatter.image && ( 
+          <Picture
+  class="rounded-xl max-w-5xl text-center"
+  src={frontmatter.image} 
+  alt={frontmatter.imageAlt} 
+  formats={["avif", "webp"]}
+  sizes="(max-width: 800px) 100vw, 800px"
+/>
+          )
+        }
+        <slot />
+      </div>
    
   </main>
  
