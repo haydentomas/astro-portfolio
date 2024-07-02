@@ -1,7 +1,7 @@
 ---
 const { current = '' } = Astro.props;
 ---
-<ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+<ul class="navigation flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
   {
     [
       { name: "Home", path: "/" },
@@ -24,3 +24,38 @@ const { current = '' } = Astro.props;
     ))
   }
 </ul>
+
+
+<style>
+
+@media only screen and (min-width:1440px){
+  .navigation li {
+    a,
+    a:link,
+    a:visited {
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      background-image: linear-gradient(90deg, #16bdca, #0b8992);
+      background-size: 0 4px;
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      transition: background-size 0.3s ease-in;
+      border-radius: 10px;
+    }
+
+    a.selected::before {
+      background-size: 100% 4px;
+    }
+  }
+}
+
+</style>
