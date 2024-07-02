@@ -1,0 +1,69 @@
+---
+const { href } = Astro.props;
+const { aria } = Astro.props;
+const { target } = Astro.props;
+---
+
+<a aria-label={aria} href={href} target={target}>
+<button class="hidden btn draw-border md:inline-flex">
+    <slot />
+</button></a>
+
+  <style>
+   .draw-border {
+  box-shadow: inset 0 0 0 2px #969696;
+@apply dark:text-white uppercase;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+
+}
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+.draw-border::after {
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+.draw-border:hover {
+  
+}
+.draw-border:hover::before, .draw-border:hover::after {
+    @apply border-teal-400;
+
+  transition: border-color 0s, width 0.65s, height 0.65s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.65s;
+}
+.draw-border:hover::after {
+  transition-delay: 0s, 0.65s, 0s;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 0.4em 1em;
+  letter-spacing: 0.05rem;
+
+}
+.btn:focus {
+  outline: 1px dotted #1e1f1f;
+}
+
+  </style>
