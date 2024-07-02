@@ -1,24 +1,26 @@
 ---
 const { current = '' } = Astro.props;
 ---
-<ul class="flex flex-col mt-4 font-medium   lg:flex-row lg:space-x-8 lg:mt-0">
-
-
-
-<li><a class={current === "" ? "selected" : ""} href='/'>Home</a></li>
-<li><a class={current === "about" ? "selected" : ""} href='/about'>About</a></li>
-<li><a class={current === "blog" ? "selected" : ""} href='/blog'>Blog</a></li>
-<li><a class={current === "projects" ? "selected" : ""} href='/projects'>Projects</a></li>
-
-
-
-</ul>
-<style>
-    a {
-        @apply block py-2 pr-4 pl-3   text-xl font-bold rounded lg:bg-transparent lg:p-0 text-slate-900 dark:text-white
-    }
-  li {
-    margin-bottom:0
+<ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+  {
+    [
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about" },
+      { name: "Blog", path: "/blog" },
+      { name: "Projects", path: "/projects" },
+    ].map((link) => (
+      <li class="mb-0">
+      <a 
+  class={`
+    
+    block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700
+    ${Astro.url.pathname === link.path ? "selected" : "not-selected"}
+  `} 
+  href={link.path}
+>
+  {link.name}
+</a>
+      </li>
+    ))
   }
-
-</style>
+</ul>
