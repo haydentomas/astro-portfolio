@@ -6,6 +6,7 @@ import PrimaryMeta from "../components/PrimaryMeta.astro"
 import '../styles/global.css';
 
 import { Picture } from "astro:assets"; 
+import BlogAuthor from "../components/BlogAuthor.astro";
 const { frontmatter, current } = Astro.props;
 
 const rootUrl = new URL(Astro.url).origin
@@ -45,18 +46,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
  
     
       <div class="container">
-        {
-          frontmatter.image && ( 
-          <Picture
-  class="rounded-xl max-w-5xl text-center"
-  src={frontmatter.image} 
-  alt={frontmatter.imageAlt} 
-  formats={["avif", "webp"]}
-  sizes="(max-width: 800px) 100vw, 800px"
+ <div class="grid lg:gap-20 lg:grid-cols-12">
+  <div class="main-content lg:col-span-9">
+    {
+      frontmatter.image && ( 
+      <Picture
+class="rounded-xl  max-w-full text-center"
+src={frontmatter.image} 
+alt={frontmatter.imageAlt} 
+formats={["avif", "webp"]}
+sizes="(max-width: 800px) 100vw, 800px"
 />
-          )
-        }
-        <slot />
+      )
+    }
+    <slot />
+  </div>
+  <div class="sidebar lg:col-span-3">
+  <BlogAuthor />
+   <div class="bookings mt-8 rounded-lg border-2">
+    <div class="tidycal-embed" data-path="haydentomas/60-minute-meeting"></div>
+   </div>
+   
+  </div>
+ </div>
       </div>
    
   </main>
@@ -65,6 +77,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
    <Footer />
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+  <script is:inline src="https://asset-tidycal.b-cdn.net/js/embed.js"></script>
   <script is:inline>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -139,5 +152,9 @@ themeToggleBtn.addEventListener('click', function() {
 
   ol::marker {
     color: #fff
+  }
+
+  .branding-ltd {
+    display:none;
   }
 </style>
