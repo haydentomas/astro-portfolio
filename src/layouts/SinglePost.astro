@@ -6,7 +6,6 @@ import PrimaryMeta from "../components/PrimaryMeta.astro"
 import '../styles/global.css';
 
 import { Picture } from "astro:assets"; 
-import BlogAuthor from "../components/BlogAuthor.astro";
 const { frontmatter, current } = Astro.props;
 
 const rootUrl = new URL(Astro.url).origin
@@ -31,7 +30,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="preload" href="/fonts/cabin/cabin-latin-400-normal.woff" as="font" type="font/woff" crossorigin />
 <link rel="preload" href="/fonts/merriweather/merriweather-latin-400-normal.woff" as="font" type="font/woff" crossorigin />
 
-
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
@@ -42,42 +40,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <Header current={current} />
 
-    <main class="prose min-w-full dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-li:text-white marker:text-teal-500 dark:prose-td:text-white">
- 
-    
-      <div class="container">
- <div class="grid lg:gap-20 lg:grid-cols-12">
-  <div class="main-content lg:col-span-9">
+    <main class="prose min-w-full  dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-li:text-white marker:text-teal-500 dark:prose-td:text-white">
+ <div class="container">
+<div class="lg:flex  gap-16">
+  <div class="main lg:w-9/12">
     {
       frontmatter.image && ( 
-      <Picture
-class="rounded-xl  max-w-full text-center"
-src={frontmatter.image} 
-alt={frontmatter.imageAlt} 
-formats={["avif", "webp"]}
-sizes="(max-width: 800px) 100vw, 800px"
-/>
+      <div class="image-container">  
+              <Picture
+                class="rounded-xl text-center"
+                src={frontmatter.image} 
+                alt={frontmatter.imageAlt} 
+                formats={["avif", "webp"]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
+              />
+            </div> 
       )
     }
-    <slot />
+     <slot />
   </div>
-  <div class="sidebar lg:col-span-3">
-  <BlogAuthor />
-   <div class="bookings mt-8 rounded-lg border-2">
-    <div class="tidycal-embed" data-path="haydentomas/60-minute-meeting"></div>
-   </div>
-   
-  </div>
+  <div class="side  mt-8  lg:w-4/12"><div class="tidycal-embed" data-path="haydentomas/60-minute-meeting"></div></div>
+</div>
  </div>
-      </div>
+    
+   
    
   </main>
  
   </div>
 
    <Footer />
+   <script is:inline src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
-  <script is:inline src="https://asset-tidycal.b-cdn.net/js/embed.js"></script>
   <script is:inline>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -154,7 +148,15 @@ themeToggleBtn.addEventListener('click', function() {
     color: #fff
   }
 
-  .branding-ltd {
-    display:none;
+  .image-container {  
+    max-width: 100%;  
+    overflow: hidden; 
+  }
+
+  /* Optional: Adjust image size based on screen width */
+  @media (max-width: 640px) { 
+    .image-container {
+      width: 100%;  /* Full width on small screens */
+    }
   }
 </style>
