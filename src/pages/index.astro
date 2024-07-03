@@ -4,16 +4,8 @@ import MainLayout from '../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Button from '../components/Button.astro';
-import ButtonSlim from '../components/ButtonSlim.astro';
 import TestimonialTabs from '../components/TestimonialTabs.astro';
-
-
-
 import Icon from '../components/Icon.astro';
-import HR from '../components/HR.astro';
-const allPosts = await getCollection("posts");
-const allProjects = await getCollection("projects");
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
 const title = 'Hayden Tomas - Website Developer';
 const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
@@ -73,9 +65,7 @@ import question from "../assets/question.jpg"
 
 
 
-import ServicesBlocks from '../components/ServicesBlocks.astro';
-import ActionButton from '../components/ActionButton.astro';
-import HomeProject from '../components/HomeProject.astro';
+
 ---
 <MainLayout title={title} description={description} image={image}>
 
