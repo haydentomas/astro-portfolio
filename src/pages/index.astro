@@ -136,7 +136,7 @@ import question from "../assets/question.jpg"
                     <div class="flex gap-2 mb-5 icons">
                       {data.icons?.map(icon => <Icon name={icon} />)}
                     </div>
-                    <Button href={`/project/${slug}`} aria={data.title}>View Project</Button>
+                    <Button href={`/project/${slug}/`} aria={data.title}>View Project</Button>
                   </div>
                 </>
               ) : (
@@ -185,7 +185,7 @@ import question from "../assets/question.jpg"
             {latestPosts.map(({ data, slug }) => ( 
 <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
 <div class=" bg-white   rounded-2xl shadow-2xl dark:bg-gray-800 p-1 ">
-    <a href={`/posts/${slug}`} class="relative block w-full h-64 ">
+    <a href={`/posts/${slug}/`} class="relative block w-full h-64 ">
                   
                   <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
               </a>
@@ -197,7 +197,7 @@ import question from "../assets/question.jpg"
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
         <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
-   <Button href={`/posts/${slug}`}  aria={data.title}>Read more</Button>
+   <Button href={`/posts/${slug}/`}  aria={data.title}>Read more</Button>
     </div>
 </div>
 </div>       
