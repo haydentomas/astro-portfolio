@@ -69,6 +69,7 @@ const latestProjects = projects.slice(0, 2) as unknown as PostItem[]; // Type as
 import { Image } from "astro:assets"
 // Import a reference to the image itself
 import whatIdoImage from "../assets/heronew.png"
+import question from "../assets/question.svg"
 
 
 
@@ -218,12 +219,19 @@ import HomeProject from '../components/HomeProject.astro';
 <section class="bg-white dark:bg-gray-900">
     <div
         class="gap-8 items-center py-8  mx-auto  xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
-        <img class="w-full dark:hidden"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
-            alt="dashboard image">
-        <img class="w-full hidden dark:block"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
-            alt="dashboard image">
+       
+      
+
+
+
+            <Image
+            loading="lazy"
+            src={question}
+            widths={[240, 540, 720, 1024, whatIdoImage.width]}
+            sizes={`(max-width: 360px) 24vw, (max-width: 720px) 48vw, (max-width: 1600px) 64vw, 100vw`} 
+            alt="Hayden Tomas = Front end website developer"
+            class="w-full hidden dark:block"
+          />
         <div class="mt-4 md:mt-0">
             <h2 class="mb-4 text-4xl text-gray-900 dark:text-white">Have a question?</h2>
             <p class="mb-6">If you have a question, wish to discuss your next project or hire me for a simple development task, then I am more than happy to help. Click the button below to get started. </p>
