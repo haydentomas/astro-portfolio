@@ -61,16 +61,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </div>
   <div class="side  mt-8  lg:w-4/12">
     
-<div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+<div class="sticky-sidebar">
+  <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Book a one hour website consultation with Hayden Tomas</h5>
-  <p>Get an hour to pick my brain about Web Development & Digital Marketing. Let me help you with your website goals!</p>
-  <p>Get Started by selecting a date and time below!</p>
-</div>
-  <div class="mt-5 block max-w-sm p-1 bg-white border border-white rounded-lg shadow  dark:bg-white dark:border-gray-700">
-<div class="tidycal-embed " data-path="haydentomas/60-minute-meeting"></div>
-
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Book a one hour website consultation with Hayden Tomas</h5>
+   
+    <p>Get Started by selecting a date and time below!</p>
   </div>
+    <div class="mt-5 block max-w-sm p-1 bg-white border border-white rounded-lg shadow  dark:bg-white dark:border-gray-700">
+  <div class="tidycal-embed " data-path="haydentomas/60-minute-meeting"></div>
+  
+    </div>
+</div>
     
   </div>
 </div>
@@ -172,4 +174,9 @@ themeToggleBtn.addEventListener('click', function() {
       width: 100%;  /* Full width on small screens */
     }
   }
+
+  .sticky-sidebar{
+    position: sticky;
+    top: 20px; 
+}
 </style>
