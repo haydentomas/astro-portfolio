@@ -8,7 +8,5 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://haydentomas.co.uk',
-  integrations: [mdx(), sitemap(), tailwind()],
-  output: "server",
-  adapter: netlify()
+  integrations: [mdx(), sitemap(), tailwind()]
 });
