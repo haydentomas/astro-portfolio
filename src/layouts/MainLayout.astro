@@ -12,8 +12,9 @@ export interface Props {
   current?: string;
   image?: string;  // Add the image prop here
 }
-const { title, description, current, image } = Astro.props;
+
 const rootUrl = new URL(Astro.url).origin; // Get root URL
+const { title, description, current, image = '/images/default-og-image.jpg' } = Astro.props;
 ---
 <html lang="en">
 <head>
