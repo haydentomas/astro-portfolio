@@ -17,8 +17,8 @@ import whatIdoImage from "../assets/coffee.png"
 ---
 
 <MainLayout title={title} description={description}>
-  <section class="hero grid py-8 mx-auto lg:gap-20 xl:gap-0 lg:py-16">
-   <!-- Block start -->
+  <!-- <section class="hero grid py-8 mx-auto lg:gap-20 xl:gap-0 lg:py-16">
+
    <section class="">
     <div class=" px-4 mx-auto max-w-screen-md">
         <h1 class="text-center">Contact Us</h2>
@@ -42,17 +42,78 @@ import whatIdoImage from "../assets/coffee.png"
 
           
 
-    <!-- <div class="formaloo--root-container" data-form-slug="vosW3M30"></div> -->
+   <div class="formaloo--root-container" data-form-slug="vosW3M30"></div> 
     
 
     </div>
   </section>
-<!-- Block end -->
-
-  </section>
 
 
-  <script is:inline src="https://embed.formaloo.me/v1/main.js" defer async></script>
+  </section> -->
+
+
+  <main class="prosed min-w-full  dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-li:text-white marker:text-teal-500 dark:prose-td:text-white">
+    <div class="containered">
+   <div class="lg:flex  gap-16">
+     <div class="main lg:w-9/12">
+      <section class="py-8 lg:py-16">
+      <div class="mx-auto">
+        <div class="">
+          <h1>Contact Me</h1>
+          <p class="mt-2 text-lg leading-8 text-gray-600">If you have a general question or a project enquiry, use the form below. I do not require help with my website, seo or marketing so will not respond to freelancers or agencies offering such services.</p>
+          <p>If you require consultaion for an existing website, I offer a 1 hour consultation for just £60 per hour (£90 per hour on weekends). Use the booking for found on this page. You can use this time to discuss anything yo like relating to website.</p>
+        </div>
+
+      </div>
+      </section>
+        <slot />
+        <form class="space-y-8" method="POST" name="Contact" data-netlify="true">
+          <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+              <input type="email" id="email" name="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
+          </div>
+          <div>
+              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+              <input type="text" id="subject" name="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+          </div>
+          <div class="sm:col-span-2">
+              <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+              <textarea id="message" name="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+          </div>
+          <button type="submit" name="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+        
+        </form>
+     </div>
+     <div class="side  mt-8  lg:w-4/12">
+       
+   <div class="sticky-sidebar">
+     <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+   
+       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Book a one hour website consultation with Hayden Tomas</h5>
+      
+       <p>Get Started by selecting a date and time below!</p>
+     </div>
+       <div class="mt-5 block max-w-sm p-1 bg-white border border-white rounded-lg shadow  dark:bg-white dark:border-gray-700">
+     <div class="tidycal-embed " data-path="haydentomas/60-minute-meeting"></div>
+     
+       </div>
+   </div>
+       
+     </div>
+   </div>
+    </div>
+       
+      
+      
+     </main>
+<style>
+    .sticky-sidebar{
+    position: sticky;
+    top: 20px; 
+}
+</style>
+<script is:inline src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+  <!-- <script is:inline src="https://embed.formaloo.me/v1/main.js" defer async></script> -->
 
 
 
