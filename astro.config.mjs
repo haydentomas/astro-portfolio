@@ -5,6 +5,9 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    serviceEntryPoint: '@astrojs/image/sharp',
+  },
   site: 'https://haydentomas.co.uk',
   integrations: [mdx(), sitemap(), tailwind()],
 
