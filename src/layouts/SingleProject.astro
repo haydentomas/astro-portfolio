@@ -47,11 +47,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
  
     
    <div class="container">
-    <!-- {
-      frontmatter.image && ( // conditionally renders image if an image exists
-        <img class="rounded-xl max-w-5xl text-center" src={frontmatter.image.src} alt={frontmatter.image.alt} />
-      )
-    } -->
+
 
     <section class="hero grid py-8 mx-auto lg:gap-20 xl:gap-0 lg:py-16 lg:grid-cols-12">
       <div class="lg:col-span-12 grid justify-center not-prose">
@@ -62,7 +58,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <div class="column">     {
     frontmatter.image && ( 
     <Picture
-class="rounded-xl max-w-5xl text-center"
+class="rounded-xl text-center"
 src={frontmatter.image} 
 alt={frontmatter.imageAlt} 
 formats={["avif", "webp"]}
