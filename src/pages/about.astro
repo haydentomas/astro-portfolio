@@ -5,7 +5,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 const title = 'About Hayden Tomas - Website Developer';
 const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
 const Name = 'Hayden Tomas - Website Developer';
-
+const image = '/images/open-graph.webp'; // Relative path to your OG image
 import Button from '../components/Button.astro';
 // Import the <Image /> component
 import { Image } from "astro:assets"
@@ -16,7 +16,7 @@ import cassetteImage from "../assets/cassette.png"
 import whatIdoImage from "../assets/coffee.png"
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout title={title} description={description} image={image}>
   <section class="hero grid py-8 mx-auto lg:gap-20 xl:gap-0 lg:py-16 lg:grid-cols-12">
     <div class="mr-auto lg:col-span-12">
       <Image
