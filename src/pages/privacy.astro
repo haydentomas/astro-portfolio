@@ -3,20 +3,13 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 
 const title = 'Privacy Policy - Hayden Tomas';
-const description = 'A UK Based front-end developer who focuses on building fast, secure websites that are accessible to all.';
-const Name = 'Hayden Tomas - Website Developer';
+const description = 'My privacy policy is designed to protect us. There is alot of information in here regarding cookies and how I use them.';
 
-import Button from '../components/Button.astro';
-// Import the <Image /> component
-import { Image } from "astro:assets"
-// Import a reference to the image itself
-import topImage from '../assets/heronew.png'; 
-import otherImage from "../assets/settings.png"
-import cassetteImage from "../assets/cassette.png"
-import whatIdoImage from "../assets/heronew.png"
+const image = '/images/open-graph.webp'; // Relative path to your OG image
+
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout title={title} description={description} image={image}>
   <section class="hero grid py-8 mx-auto lg:gap-20 xl:gap-0 lg:py-16 lg:grid-cols-12">
     <div class="mr-auto lg:col-span-12 prose max-w-full dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-li:text-white marker:text-teal-500 dark:prose-td:text-white">
 
