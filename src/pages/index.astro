@@ -120,7 +120,7 @@ import question from "../assets/contact.png"
               {index % 2 === 0 ? (
                 <>
                   <a href={`/project/${slug}`} class="relative block w-full h-full md:w-1/2">
-                    <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651" height="795" class="mb-10" loading="eager"/>
+                    <Picture formats={['avif', 'webp']} loading="eager" src={data.image} alt={data.imageAlt} width="651" height="795" class="mb-10" loading="eager"/>
                   </a>
                   <div class="flex flex-col justify-between p-4 md:w-1/2 lg:pl-8">
                     {/* Content section */}
@@ -158,7 +158,7 @@ import question from "../assets/contact.png"
                     <Button href={`/project/${slug}`} aria={data.title}>View Project</Button>
                   </div>
                   <a href={`/project/${slug}`} class="relative block w-full h-full md:w-1/2">
-                    <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} width="651" height="795" class="mb-10" />
+                    <Picture formats={['avif', 'webp']} loading="eager" src={data.image} alt={data.imageAlt} width="651" height="795" class="mb-10" />
                   </a>
                 </>
               )}
@@ -187,7 +187,7 @@ import question from "../assets/contact.png"
 <div class=" bg-white   rounded-2xl shadow-2xl dark:bg-gray-800 p-1 ">
     <a href={`/posts/${slug}/`} class="relative block w-full h-64 ">
                   
-                  <Picture formats={['avif', 'webp']} src={data.image} alt={data.imageAlt} height="200" width="300" class=" rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
+                  <Picture formats={['avif', 'webp']} loading="eager" src={data.image} alt={data.imageAlt} height="200" width="300" class=" rounded-t-2xl shadow-lg object-cover object-center w-full h-full"/>
               </a>
     <div class="p-5">
         <a href={`/posts/${slug}`}>

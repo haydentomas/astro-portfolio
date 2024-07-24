@@ -85,6 +85,9 @@ footer {
   h2 {
     @apply mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white;
   }
+  h3 {
+    @apply mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white;
+  }
   ul {
     @apply text-gray-500 dark:text-gray-400;
   }
