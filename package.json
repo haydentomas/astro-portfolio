@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.0.9",
+    "astro-critters": "^2.2.0",
     "astro-seo": "^0.8.4",
     "flowbite": "^2.3.0",
     "flowbite-svelte": "^0.46.4",
