@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import MainLayout from '../../layouts/MainLayout.astro';
-import Button from '../../components/Button.astro';
+import BlogReadButton from '../../components/BlogReadButton.astro';
 
 // Define a basic structure for the pagination result
 type PaginationResult = {
@@ -101,7 +101,7 @@ const Name = 'Hayden Tomas - Website Developer';
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
         <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
-   <Button href={`/posts/${slug}/`}  aria={data.title}>Read more</Button>
+   <BlogReadButton href={`/posts/${slug}/`}  aria={data.title}>Read more</BlogReadButton>
     </div>
 </div>
 </div>
