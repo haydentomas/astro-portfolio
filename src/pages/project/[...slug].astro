@@ -58,12 +58,16 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
   {/* Only show Previous if it exists and is NOT the first post */}
   {previousPost && (
-    <a href={`/project/${previousPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-left"> ⬅️ Previous: {previousPost.data.title}</a>
+    <a href={`/project/${previousPost.slug}`} class=" prevpost block text-left"> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4"/>
+</svg> Previous: {previousPost.data.title}</a>
   )}
   
   {/* Only show Next if it exists and is NOT the last post */}
   {nextPost && (
-    <a href={`/project/${nextPost.slug}`} class="text-blue-500 hover:text-blue-700 block text-right"> Next: {nextPost.data.title} ➡️</a>
+    <a href={`/project/${nextPost.slug}`} class=" nextpost block text-right"> Next: {nextPost.data.title} <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4"/>
+</svg></a>
   )}
 </div>
 
@@ -80,4 +84,18 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
     }
   }
+
+  .prevpost {
+
+display:flex;
+float:left;
+align-items:center;
+}
+
+.nextpost {
+
+display:flex;
+align-items:center;
+float:right;
+}
 </style>
