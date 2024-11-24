@@ -40,7 +40,10 @@ body {
   font-family: 'Merriweather', serif;
   font-weight:normal;
 }
-
+body {
+  background-color:#fff;
+  color:#222;
+}
 strong {
   font-weight: bold;
 }
