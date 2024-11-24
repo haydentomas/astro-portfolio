@@ -173,12 +173,12 @@ import question from "../assets/contact.png"
                   <div class="flex flex-col justify-between p-4 md:w-1/2 lg:pl-8">
                     {/* Content section */}
                     
-                      <h2 class="mb-4 text-4xl tracking-tight text-gray-900 dark:text-white">{data.title}</h2>
+                      <h2 class="mb-4 text-4xl tracking-tight">{data.title}</h2>
                   
-                    <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
+                    <p class="mb-3 font-light text-m">{data.description}</p>
                     <ul class="mt-2 text-m mb-5"> 
           {data.whatwedid?.map((item) => (
-            <li class="text-gray-700 dark:text-white">{item}</li>
+            <li>{item}</li>
           ))}
         </ul>
                     <div class="flex gap-2 mb-5 icons">
@@ -194,12 +194,12 @@ import question from "../assets/contact.png"
                   <div class="flex flex-col justify-between p-4 md:w-1/2 lg:pr-8">
                   
                    
-                      <h2 class="mb-4 text-4xl text-gray-900 dark:text-white">{data.title}</h2>
+                      <h2 class="mb-4 text-4xl">{data.title}</h2>
                      
-                    <p class="mb-3 font-light text-m text-gray-700 dark:text-white">{data.description}</p>
+                    <p class="mb-3 font-light text-m">{data.description}</p>
                     <ul class="mt-2 text-m mb-5"> 
           {data.whatwedid?.map((item) => (
-            <li class="text-gray-700 dark:text-white">{item}</li>
+            <li>{item}</li>
           ))}
         </ul>
                     <div class="flex gap-2 mb-5 icons">
@@ -248,7 +248,7 @@ import question from "../assets/contact.png"
         {data.pubDate && ( /* Conditionally display pubDate if it exists */
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
-        <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
+        <p class="mb-3 font-light  text-lg mb-5 dark:text-white">{data.description}</p>
    <BlogButton href={`/posts/${slug}/`}  aria={data.title}>Read blog post</BlogButton>
     </div>
 </div>
