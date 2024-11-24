@@ -4,10 +4,10 @@ const { aria } = Astro.props;
 const { target } = Astro.props;
 ---
 
-<a class="btn draw-border md:inline-flex" aria-label={aria} href={href} target={target}>
-
+<a aria-label={aria} href={href} target={target}>
+<button class="btn draw-border md:inline-flex">
     <slot />
-</a>
+</button></a>
 
   <style>
    .draw-border {
