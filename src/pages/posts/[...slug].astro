@@ -54,7 +54,7 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
   <div class="w-auto mx-auto text-center mt-8 "> 
     {/* Only show Previous if currentIndex is NOT 0 (not the first post) */}
     {currentIndex !== 0 && previousPost && (
-      <a href={`/posts/${previousPost.slug}`} class="text-blue-500 prevpost hover:text-blue-700  text-left"> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <a href={`/posts/${previousPost.slug}`} class=" prevpost hover:text-blue-700  text-left"> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4"/>
 </svg>
   Previous: {previousPost.data.title}</a>
@@ -62,7 +62,7 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
     {/* Only show Next if it's NOT the last post */}
     {nextPost && (
-      <a href={`/posts/${nextPost.slug}`} class="text-blue-500 nextpost hover:text-blue-700 block text-right"> Next Post: {nextPost.data.title} <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <a href={`/posts/${nextPost.slug}`} class=" nextpost hover:text-blue-700 block text-right"> Next Post: {nextPost.data.title} <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4"/>
 </svg></a>
     )}
