@@ -4,6 +4,8 @@ import MainLayout from '../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Button from '../components/Button.astro';
+import BlogButton from '../components/BlogButton.astro';
+import ProjectButton from '../components/ProjectButton.astro';
 import TestimonialTabs from '../components/TestimonialTabs.astro';
 import Icon from '../components/Icon.astro';
 
@@ -183,7 +185,7 @@ import question from "../assets/contact.png"
                       {data.icons?.map(icon => <Icon name={icon} />)}
                     </div>
                   <div class="block">
-                    <Button href={`/project/${slug}/`} aria={data.title}>View Project</Button>
+                    <ProjectButton href={`/project/${slug}/`} aria={data.title}>View Project</ProjectButton>
                   </div>
                   </div>
                 </>
@@ -204,7 +206,7 @@ import question from "../assets/contact.png"
                       {data.icons?.map(icon => <Icon name={icon} />)}
                     </div>
                   <div class="block">
-                    <Button href={`/project/${slug}`} aria={data.title}>View Project</Button>
+                    <ProjectButton href={`/project/${slug}`} aria={data.title}>View Project</ProjectButton>
                   </div>
                   </div>
                   <a href={`/project/${slug}`} class="relative block w-full h-full md:w-1/2">
@@ -247,7 +249,7 @@ import question from "../assets/contact.png"
                         <p class="text-xs font-bold text-gray-900 dark:text-white uppercase">Published: {new Date(data.pubDate).toLocaleDateString()}</p>
                     )}
         <p class="mb-3 font-light  text-lg text-gray-700 dark:text-white">{data.description}</p>
-   <Button href={`/posts/${slug}/`}  aria={data.title}>Read blog post</Button>
+   <BlogButton href={`/posts/${slug}/`}  aria={data.title}>Read blog post</BlogButton>
     </div>
 </div>
 </div>       
