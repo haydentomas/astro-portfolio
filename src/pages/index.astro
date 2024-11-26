@@ -64,6 +64,10 @@ import { Image } from "astro:assets"
 // Import a reference to the image itself
 import whatIdoImage from "../assets/face-done.png"
 import question from "../assets/contact.png"
+import set1 from "../assets/dashboard-011.png"
+import convert from "../assets/convert.png"
+
+
 
 
 
@@ -155,6 +159,69 @@ import question from "../assets/contact.png"
       </div>
   </section>
   
+
+  <section>
+    <div class="flex flex-col  mx-auto space-y-12">
+        <div class="relative pb-20">
+            <h2 class="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl"> Why choose Hayden for your next website project?</h2>
+            <p class="w-full py-8 mx-auto -mt-2 text-xl text-center  intro sm:max-w-3xl">With more than 10 years experience in the web development industry, I have a deep understanding of how websites work. I am not your average developer.</p>
+            <p class=" mx-auto -mt-2 text-xl text-center  sm:max-w-3xl">I develop websites that make money for my clients, and I can help you do the same. Conversion Optimised, Responsive, Fast and Secure.</p>
+        </div>
+        <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
+            <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
+                
+                <Image
+                loading="eager"
+                src={set1}
+                widths={[240, 540, 720, 1024, whatIdoImage.width]}
+                sizes={`(max-width: 360px) 24vw, (max-width: 720px) 48vw, (max-width: 1600px) 64vw, 100vw`} 
+                alt="Proper development, built from scratch"
+                class="rounded-lg shadow-xl"
+              />
+              </div>
+            <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
+                <p class="mb-2  leading-none text-left uppercases" data-primary="indigo-600">Enterprise Level Website Development</p>
+                <h2 class="mt-2 text-2xl sm:text-left md:text-4xl">Proper development, built from scratch</h2>
+                <p>Your business will benefit from a custom built, extremely secure, scalable, maintainable website.</p>
+                <p>Your website will be built from scratch using the latest technologies and best practices. Most importantly, it will be built with your needs and the needs of your customers in mind.</p>
+            </div>
+        </div>
+        <!-- <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
+            <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12">
+               
+                <Image
+                loading="eager"
+                src={convert}
+                widths={[240, 540, 720, 1024, whatIdoImage.width]}
+                sizes={`(max-width: 360px) 24vw, (max-width: 720px) 48vw, (max-width: 1600px) 64vw, 100vw`} 
+                alt="Proper development, built from scratch"
+                class="rounded-lg shadow-xl"
+              />
+              </div>
+            <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pl-16">
+              <p class="mb-2  leading-none text-left uppercases" data-primary="indigo-600">Enterprise Level Website Development</p>
+              <h2 class="mt-2 text-2xl sm:text-left md:text-4xl">Proper development, built from scratch</h2>
+              <p>Your business will benefit from a custom built, extremely secure, scalable, maintainable website.</p>
+              <p>Your website will be built from scratch using the latest technologies and best practices. Most importantly, it will be built with your needs and the needs of your customers in mind.</p>
+            </div>
+        </div> -->
+        <!-- <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
+            <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
+                <img class="rounded-lg shadow-xl" src="https://cdn.devdojo.com/images/december2020/dashboard-03.png" alt="" data-rounded="rounded-lg" data-rounded-max="rounded-full">
+            </div>
+            <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
+              <p class="mb-2  leading-none text-left uppercases" data-primary="indigo-600">Enterprise Level Website Development</p>
+              <h2 class="mt-2 text-2xl sm:text-left md:text-4xl">Proper development, built from scratch</h2>
+              <p>Your business will benefit from a custom built, extremely secure, scalable, maintainable website.</p>
+              <p>Your website will be built from scratch using the latest technologies and best practices. Most importantly, it will be built with your needs and the needs of your customers in mind.</p>
+            </div>
+        </div> -->
+
+    </div>
+</section>
+
+
+
 
 
 
