@@ -13,6 +13,8 @@ import Icon from '../components/Icon.astro';
 type PostItem = {
     data: {
         title: string;
+        client: string;
+        challenge: string;
         subTitle: string;
         description: string;
         image: any; // Use a generic type for the image property
@@ -77,8 +79,9 @@ const latestProjects = projects.slice(0, 2) as unknown as PostItem[]; // Type as
                {/* Content section */}
                
                  <h2 class="mb-4 text-4xl tracking-tight">{data.title}</h2>
-             
-               <p class="mb-3 text-m">{data.description}</p>
+                 <p class="mb-3 text-m "><strong>Challenge</strong></p>
+                 <p class="mb-3 text-m"> {data.description}</p>
+                 <p class="mb-3 text-m"><strong>Solution</strong></p>
                <ul class="mt-2 text-m mb-5"> 
      {data.whatwedid?.map((item) => (
        <li>{item}</li>
@@ -98,7 +101,8 @@ const latestProjects = projects.slice(0, 2) as unknown as PostItem[]; // Type as
              
               
                  <h2 class="mb-4 text-4xl">{data.title}</h2>
-                
+                 <p class="mb-3 text-m">{data.client}</p>
+                 <p class="mb-3 text-m">{data.challenge}</p>
                <p class="mb-3 text-m">{data.description}</p>
                <ul class="mt-2 text-m mb-5"> 
      {data.whatwedid?.map((item) => (
